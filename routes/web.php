@@ -23,6 +23,8 @@ Route::get('/index2', function () {
 });
 
 Route::get('/index2',[HomeController::class, 'index2'])->name('index2');
+Route::get('/home',[HomeController::class, 'index'])->name('index');
+Route::get('/about',[HomeController::class, 'about'])->name('about');
 
 // Route::post('/goster', [HomeController::class, 'save'])->name('save');
 

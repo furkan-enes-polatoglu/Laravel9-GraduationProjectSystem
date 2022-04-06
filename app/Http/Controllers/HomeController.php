@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
-  public function index2(){
-    return view('index2');
+  public function index(){
+    return view('/home/index');
   }
+
+  public function about(){
+    return view('/home/about');
+  }
+
 
 
     /*public function save(Request $request){
