@@ -18,11 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    return view('index');
+Route::get('/index2', function () {
+    return view('index2');
 });
 
-Route::post('/goster', [HomeController::class, 'save'])->name('save');
+Route::get('/index2',[HomeController::class, 'index2'])->name('index2');
+
+// Route::post('/goster', [HomeController::class, 'save'])->name('save');
+
+//Route with parameters
+//Route::get('/param/{number}/{adi}',[HomeController::class, 'param'])->name('param');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

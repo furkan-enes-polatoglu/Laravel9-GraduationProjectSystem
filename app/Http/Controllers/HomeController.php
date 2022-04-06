@@ -6,7 +6,13 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function save(Request $request){
+
+  public function index2(){
+    return view('index2');
+  }
+
+
+    /*public function save(Request $request){
       $ad = $_REQUEST['ad'];
       $soyad = $_REQUEST['soyad'];
 
@@ -14,5 +20,11 @@ class HomeController extends Controller
         'ad' => $ad,
         'soyad' => $soyad
       ]);
-    }
+    }*/
+
+
+    /*public function param($number, $adi){
+      echo "Adı: ".$adi;
+      echo "Numara: ".$number;
+    }*/
 }
