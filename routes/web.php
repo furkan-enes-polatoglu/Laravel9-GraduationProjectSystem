@@ -25,6 +25,12 @@ Route::get('/index2', function () {
 Route::get('/index2',[HomeController::class, 'index2'])->name('index2');
 Route::get('/home',[HomeController::class, 'index'])->name('index');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
+Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
+Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
+Route::get('/features',[HomeController::class, 'features'])->name('features');
+Route::get('/login',[HomeController::class, 'login'])->name('login');
+Route::get('/portfolio',[HomeController::class, 'portfolio'])->name('portfolio');
+Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
 
 // Route::post('/goster', [HomeController::class, 'save'])->name('save');
 
