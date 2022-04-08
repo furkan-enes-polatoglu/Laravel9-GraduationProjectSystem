@@ -5,8 +5,9 @@
             <div class="row">
                 <div class="col-md-7 col-sm-7 col-xs-7 top-header-links">
                     <ul class="contact_links">
-                        <li><i class="fa fa-phone"></i><a href="#">+91 848 594 5080</a></li>
-                        <li><i class="fa fa-envelope"></i><a href="#">sales@aspiresoftware.in</a></li>
+                        <li><i class="fa fa-phone"></i><a href="#">444 0 478</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="#">iletisim@karabuk.edu.tr</a></li>
+                        <li><i class="fa fa-bookmark"></i><a href="#">Bitirme Projeleri Sistemi</a></li>
                     </ul>
                 </div>
                 <div class="col-md-5 col-sm-5 col-xs-5 social">

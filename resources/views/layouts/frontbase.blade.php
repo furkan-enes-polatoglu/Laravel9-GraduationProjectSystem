@@ -11,6 +11,9 @@
           <link rel="stylesheet" href="{{asset('assets')}}/scss/main.css">
           <link rel="stylesheet" href="{{asset('assets')}}/scss/skin.css">
 
+
+
+
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
           <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
           <script src="{{asset('assets')}}/script/index.js"></script>

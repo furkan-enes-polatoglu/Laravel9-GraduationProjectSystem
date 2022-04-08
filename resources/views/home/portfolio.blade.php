@@ -1,14 +1,18 @@
 @extends('layouts.frontbase')
 
-@section('title','Projeler')
+@section('title','Anasayfa')
 
 @section('head')
 
-@section('content')
-
 <!DOCTYPE html>
 <html>
+
+
+@section('content')
+
 <body id="wrapper">
+
+
     <section id="top_banner">
         <div class="banner">
             <div class="inner text-center">
@@ -41,6 +45,10 @@
                     </div>
                 </div>
             </div>
+
+
+
+
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
                     <div class="portfolio-one">
@@ -61,6 +69,8 @@
                     <!-- End portfolio-item -->
                 </div>
 
+
+
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
                     <div class="portfolio-one">
                         <div class="portfolio-head">
@@ -79,6 +89,10 @@
                     </div>
                     <!-- End portfolio-item -->
                 </div>
+
+
+
+
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
                     <div class="portfolio-one">
                         <div class="portfolio-head">
@@ -97,11 +111,36 @@
                     </div>
                     <!-- End portfolio-item -->
                 </div>
+
+
+
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
+                    <div class="portfolio-one">
+                        <div class="portfolio-head">
+                            <div class="portfolio-img"><img alt="" src="{{asset('assets')}}/img/portfolio-1.jpg"></div>
+                            <div class="portfolio-hover">
+                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <!-- End portfolio-head -->
+                        <div class="portfolio-content">
+                            <h5 class="title">Lorem Ipsum</h5>
+                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
+                        </div>
+                        <!-- End portfolio-content -->
+                    </div>
+                    <!-- End portfolio-item -->
+                </div>
+
+
             </div>
-
-
+            </div>
+        </div>
     </section>
-</body>
-</html>
 
-@endsection
+
+</body>
+
+</html>
+  @endsection
