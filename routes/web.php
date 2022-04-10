@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,23 +15,29 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/index2', function () {
-    return view('index2');
-});
-
+Route::get('/', function () { return view('welcome'); });
+Route::get('/index2', function () { return view('index2'); });
 Route::get('/index2',[HomeController::class, 'index2'])->name('index2');
+
+
+// *********************************** WEB PANEL ROUTING  ******************************************
 Route::get('/home',[HomeController::class, 'index'])->name('index');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
-Route::get('/features',[HomeController::class, 'features'])->name('features');
+// Route::get('/features',[HomeController::class, 'features'])->name('features');
 Route::get('/login',[HomeController::class, 'login'])->name('login');
 Route::get('/portfolio',[HomeController::class, 'portfolio'])->name('portfolio');
 Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
+
+
+
+// ********************************** ADMIN PANEL ROUTING *******************************************
+Route::get('/admin/dashboard',[AdminHomeController::class, 'dashboard'])->name('adminDashboard');
+
+
+
+
 
 // Route::post('/goster', [HomeController::class, 'save'])->name('save');
 

@@ -11,7 +11,7 @@ class HomeController extends Controller
   public function about() { return view('/home/about'); }
   public function contact() { return view('/home/contact'); }
   public function faq() { return view('/home/faq'); }
-  public function features() { return view('/home/features'); }
+  //public function features() { return view('/home/features'); }
   public function login() { return view('/home/login'); }
   public function portfolio() { return view('/home/portfolio'); }
   public function registration() { return view('/home/registration'); }

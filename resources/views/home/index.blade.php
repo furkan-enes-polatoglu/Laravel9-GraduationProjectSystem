@@ -2,9 +2,6 @@
 
 @section('title','Anasayfa')
 
-@section('head')
-
-
 @section('slider')
 
 <section id="top_banner">
@@ -72,25 +69,23 @@ function showDivs(n) {
            <div class="col-md-4 col-xs-12 block">
                <div class="col-md-2 col-xs-2"><i class="fa fa-laptop feature_icon"></i></div>
                <div class="col-md-10 col-xs-10">
-                   <h4>100% Responsive</h4>
-                   <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                   <a href="#" class="readmore">Read More <i class="fa fa-caret-right"></i></a>
+                   <h4>Bitirme Projeleri Veritabanı</h4>
+                   <p>Öğrencilerimizin mezuniyet projelerini akademik camiaya sunmak adına, sizler için bir veritabanı oluşturduk.</p>
+
                </div>
            </div>
            <div class="col-md-4 col-xs-12 block">
                <div class="col-md-2 col-xs-2"><i class="fa fa-bullhorn feature_icon"></i></div>
                <div class="col-md-10 col-xs-10">
-                   <h4>Powerful Features</h4>
-                   <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                   <a href="#" class="readmore">Read More <i class="fa fa-caret-right"></i></a>
+                   <h4>Hızlı Erişim</h4>
+                   <p>Verilere çok daha hızlı erişebilmeniz için sade, anlaşılır ve normalize edilmiş bir yapı oluşturduk.</p>
                </div>
            </div>
            <div class="col-md-4 col-xs-12 block">
                <div class="col-md-2 col-xs-2"><i class="fa fa-support feature_icon"></i></div>
                <div class="col-md-10 col-xs-10">
-                   <h4>Customer Support</h4>
-                   <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                   <a href="#" class="readmore">Read More <i class="fa fa-caret-right"></i></a>
+                   <h4>Teknik Destek</h4>
+                   <p>Herhangi bir sorunla karşılaşmanız halinde destek ekiplerimiz ile iletişime geçmekten çekinmeyin.</p>
                </div>
            </div>
        </div>
