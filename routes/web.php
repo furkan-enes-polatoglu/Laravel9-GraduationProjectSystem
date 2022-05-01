@@ -34,6 +34,7 @@ Route::get('/registration',[HomeController::class, 'registration'])->name('regis
 
 // ********************************** ADMIN PANEL ROUTING *******************************************
 Route::get('/admin/dashboard',[AdminHomeController::class, 'dashboard'])->name('adminDashboard');
+//
 
 
 
