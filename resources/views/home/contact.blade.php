@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title','Hakkımızda')
+@section('title','İletişim')
 
 @section('head')
 
