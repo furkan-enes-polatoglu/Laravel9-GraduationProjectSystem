@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function dashboard() { return view('/admin/index'); }
+    public function category() { return view('/admin/category'); }
 
 
 

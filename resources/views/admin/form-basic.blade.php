@@ -781,9 +781,13 @@
                   </div>
                 </form>
               </div>
+
+
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Form Elements</h5>
+
+
                   <div class="form-group row">
                     <label class="col-md-3 mt-3">Single Select</label>
                     <div class="col-md-9">
@@ -926,6 +930,8 @@
                       </select>
                     </div>
                   </div>
+
+
                   <div class="form-group row">
                     <label class="col-md-3">Radio Buttons</label>
                     <div class="col-md-9">
@@ -1014,6 +1020,8 @@
                       </div>
                     </div>
                   </div>
+
+
                   <div class="form-group row">
                     <label class="col-md-3">File Upload</label>
                     <div class="col-md-9">
