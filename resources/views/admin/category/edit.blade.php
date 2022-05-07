@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title','Kategori Ekle')
+@section('title','Kategori Düzenle')
 
 @section('head')
 
@@ -10,7 +10,7 @@
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
-        <h4 class="page-title">Kategori Ekle</h4>
+        <h4 class="page-title">Kategori Düzenle</h4>
         <div class="ms-auto text-end">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -28,10 +28,10 @@
 <div class="container-fluid">
   <div class="col-md-6">
   <div class="card">
-    <form class="form-horizontal" action="/admin/category/store" method="post">
+    <form class="form-horizontal" action="/admin/category/update/{{$data->id}}" method="post">
       @csrf
       <div class="card-body">
-        <h4 class="card-title">Yeni Kategori</h4><br>
+        <h4 class="card-title"><b>{{$data->title}}</b> Kategorisini Düzenle</h4><br>
         <div class="form-group row">
           <label
             for="baslik"
@@ -40,11 +40,12 @@
           >
           <div class="col-sm-9">
             <input
+            value="{{$data->title}}"
               type="text"
               class="form-control"
               id="baslik"
               name="baslik"
-              placeholder="Başlık giriniz..."
+              placeholder="Başlık giriniz.."
             />
           </div>
         </div>
@@ -56,6 +57,7 @@
           >
           <div class="col-sm-9">
             <input
+            value="{{$data->keywords}}"
               type="text"
               class="form-control"
               id="anahtarKelime"
@@ -73,6 +75,7 @@
           >
           <div class="col-sm-9">
             <input
+            value="{{$data->description}}"
               type="text"
               class="form-control"
               id="aciklama"
@@ -108,7 +111,7 @@
             <select name="status"
               class="select2 form-select shadow-none"
               style="width: 100%; height: 36px">
-
+                <option selected>{{$data->status}}</option>
                 <option name="bir" id="bir" value="True">True</option>
                 <option name="sifir" id="sifir" value="False">False</option>
 
@@ -122,8 +125,8 @@
 
       <div class="border-top">
         <div class="card-body">
-          <button type="submit" id="ekle" name="ekle" type="button" class="btn btn-primary">
-            Ekle
+          <button type="submit" id="guncelle" name="guncelle" type="button" class="btn btn-primary">
+            Güncelle
           </button>
         </div>
       </div>
