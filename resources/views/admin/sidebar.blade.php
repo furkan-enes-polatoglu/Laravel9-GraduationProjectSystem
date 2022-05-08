@@ -11,7 +11,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/admin/dashboard"
+                  href="{{route('admin.adminDashboard')}}"
                   aria-expanded="false"
                   ><i class="mdi mdi-eye-outline"></i
                   ><span class="hide-menu">Genel Bakış</span></a
@@ -43,7 +43,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/admin/category"
+                  href="{{route('admin.category.index')}}"
                   aria-expanded="false"
                   ><i class="mdi mdi-view-dashboard"></i
                   ><span class="hide-menu">Kategoriler</span></a

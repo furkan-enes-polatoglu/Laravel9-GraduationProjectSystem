@@ -28,7 +28,7 @@
 <div class="container-fluid">
   <div class="col-md-6">
   <div class="card">
-    <form class="form-horizontal" action="/admin/category/store" method="post">
+    <form class="form-horizontal" action="{{route('admin.category.store')}}" method="post">
       @csrf
       <div class="card-body">
         <h4 class="card-title">Yeni Kategori</h4><br>
@@ -83,7 +83,7 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resim</label>
+          <label class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resim</label>
           <div class="col-md-3">
             <div class="custom-file">
               <input
@@ -103,7 +103,7 @@
 
 
         <div class="form-group row">
-          <label class="col-md-3 mt-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Durum</label>
+          <label class="col-md-3 mt-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Durum</label>
           <div class="col-md-9">
             <select name="status"
               class="select2 form-select shadow-none"

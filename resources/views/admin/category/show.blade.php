@@ -14,6 +14,12 @@
         <div class="ms-auto text-end">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
+              <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/admin/category">Kategori Listesi</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Kategori Detay
+                    </li>
+                  </ol>
 
               </li>
             </ol>
@@ -29,7 +35,7 @@
 
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Detay</h5>
+      <h5 class="card-title"><a href="{{route('admin.category.edit', ['id'=>$data->id])}}" class="btn btn-secondary">Düzenle</a> &nbsp; <a href="{{route('admin.category.edit', ['id'=>$data->id])}}" onClick="return confirm('Silmek istediğine emin misin?')" class="btn btn-danger">Sil</a></h5>
       <div class="table-responsive">
         <table
           id="zero_config"
@@ -47,7 +53,7 @@
               <td>{{$data->title}}</td>
             </tr>
             <tr>
-              <td><b>Keywords</b></td>
+              <td><b>Anahtar Kelimeler</b></td>
               <td>{{$data->keywords}}</td>
             </tr>
             <tr>

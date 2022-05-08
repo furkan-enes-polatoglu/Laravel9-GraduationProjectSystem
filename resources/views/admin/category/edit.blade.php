@@ -28,7 +28,7 @@
 <div class="container-fluid">
   <div class="col-md-6">
   <div class="card">
-    <form class="form-horizontal" action="/admin/category/update/{{$data->id}}" method="post">
+    <form class="form-horizontal" action="{{route('admin.category.update', ['id'=>$data->id])}}" method="post">
       @csrf
       <div class="card-body">
         <h4 class="card-title"><b>{{$data->title}}</b> Kategorisini Düzenle</h4><br>

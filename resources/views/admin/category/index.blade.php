@@ -21,7 +21,7 @@
       </div>
     </div>
     <br>
-    <a href="/admin/category/create" class="btn btn-primary">Kategori Ekle</a>
+    <a href="{{route('admin.category.create')}}" class="btn btn-primary">Kategori Ekle</a>
 
   </div>
 
@@ -55,13 +55,13 @@
             <td>{{$rs->image}}</td>
             <td>{{$rs->status}}</td>
             <td>
-                <a href="/admin/category/edit/{{$rs->id}}" class="btn btn-secondary">Düzenle</a>
+                <a href="{{route('admin.category.edit', ['id'=>$rs->id])}}" class="btn btn-secondary">Düzenle</a>
             </td>
             <td>
-                <a href="/admin/category/delete/{{$rs->id}}"  class="btn btn-danger" onClick="return confirm('Silmek istediğine emin misin?')">Sil</a>
+                <a href="{{route('admin.category.destory', ['id'=>$rs->id])}}"  class="btn btn-danger" onClick="return confirm('Silmek istediğine emin misin?')">Sil</a>
             </td>
             <td>
-                <a href="/admin/category/show/{{$rs->id}}" class="btn btn-primary">Göster</a>
+                <a href="{{route('admin.category.show', ['id'=>$rs->id])}}" class="btn btn-primary">Göster</a>
             </td>
 
 
