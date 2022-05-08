@@ -28,7 +28,7 @@
 <div class="container-fluid">
   <div class="col-md-6">
   <div class="card">
-    <form class="form-horizontal" action="{{route('admin.category.store')}}" method="post">
+    <form class="form-horizontal" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="card-body">
         <h4 class="card-title">Yeni Kategori</h4><br>
@@ -89,8 +89,8 @@
               <input
                 type="file"
                 class="custom-file-input"
-                id="dosyaYukle"
-                name="dosyaYukle"
+                id="image"
+                name="image"
 
               />
 
