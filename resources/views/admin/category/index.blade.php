@@ -14,13 +14,15 @@
         <div class="ms-auto text-end">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-
               </li>
             </ol>
           </nav>
         </div>
       </div>
     </div>
+    <br>
+    <a href="/admin/category/create" class="btn btn-primary">Kategori Ekle</a>
+
   </div>
 
 <div class="container-fluid">
@@ -56,7 +58,7 @@
                 <a href="/admin/category/edit/{{$rs->id}}" class="btn btn-secondary">Düzenle</a>
             </td>
             <td>
-                <a href="/admin/category/delete/{{$rs->id}}" class="btn btn-danger">Sil</a>
+                <a href="/admin/category/delete/{{$rs->id}}"  class="btn btn-danger" onClick="return confirm('Silmek istediğine emin misin?')">Sil</a>
             </td>
             <td>
                 <a href="/admin/category/show/{{$rs->id}}" class="btn btn-primary">Göster</a>
