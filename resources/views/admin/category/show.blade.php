@@ -49,6 +49,10 @@
               <td>{{$data->id}}</td>
             </tr>
             <tr>
+              <td><b>Ana Kategori</b></td>
+              <td>{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data, $data->title) }}</td>
+            </tr>
+            <tr>
               <td><b>Başlık</b></td>
               <td>{{$data->title}}</td>
             </tr>
