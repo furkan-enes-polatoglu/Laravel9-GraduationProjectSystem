@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
+use App\Http\Controllers\AdminPanel\AdminProjectController as AdminProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,19 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/show/{id}', 'show')->name('show');
         Route::get('/ImageDestory/{id}', 'ImageDestroy')->name('ImageDestory');  // /admin.category.ImageDestory
     });
+
+    // ******************************** ADMIN PROJECT ROUTES *******************************************
+    Route::prefix('/project')->name('project.')->controller(AdminProjectController::class)->group(function() {
+        Route::get('', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('destory');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::get('/ImageDestory/{id}', 'ImageDestroy')->name('ImageDestory');  // /admin.category.ImageDestory
+    });
+
 });
 
 
