@@ -34,9 +34,10 @@
         <thead>
           <tr>
             <th scope="col"><b>#</b></th>
+            <th scope="col"><b>Ana Kategori</b></th>
             <th scope="col"><b>Başlık</b></th>
-            <th scope="col"><b>Anahtar Kelimeler</b></th>
-            <th scope="col"><b>Açıklama</b></th>
+            <!--<th scope="col"><b>Anahtar Kelimeler</b></th>-->
+            <!--<th scope="col"><b>Açıklama</b></th>-->
             <th scope="col"><b>Resim</b></th>
             <th scope="col"><b>Durum</b></th>
             <th scope="col"><b>Düzenle</b></th>
@@ -49,9 +50,10 @@
         @foreach($data as $rs)
           <tr>
             <td>{{$rs->id}}</td>
+            <td>{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title) }}</td>
             <td>{{$rs->title}}</td>
-            <td>{{$rs->keywords}}</td>
-            <td>{{$rs->description}}</td>
+            <!--<td>{{$rs->keywords}}</td>-->
+            <!--<td>{{$rs->description}}</td>-->
             <td>
               @if ($rs->image)
                 <img src="{{Storage::url($rs->image)}}" style="height:50px; width:100px;">

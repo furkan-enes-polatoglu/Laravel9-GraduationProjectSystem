@@ -45,6 +45,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::post('/update/{id}', 'update')->name('update');
         Route::get('/delete/{id}', 'destroy')->name('destory');
         Route::get('/show/{id}', 'show')->name('show');
+        Route::get('/ImageDestory/{id}', 'ImageDestroy')->name('ImageDestory');  // /admin.category.ImageDestory
     });
 });
 

@@ -30,13 +30,35 @@
   <div class="card">
     <form class="form-horizontal" action="{{route('admin.category.update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
       @csrf
+
       <div class="card-body">
         <h4 class="card-title"><b>{{$data->title}}</b> Kategorisini Düzenle</h4><br>
+
+
+        <div class="form-group row">
+          <label
+            for="baslik"
+            class="col-sm-3 text-end control-label col-form-label"><b>Ana Kategori</b></label>
+            <div class="col-md-9">
+            <select name="parent_id"
+              class="select2 form-select shadow-none"
+              style="width: 100%; height: 36px">
+              <option value="0" selected="selected">Ana Kategori</option>
+              @foreach($datalist as $rs)
+                <option value="{{$rs->id}}" @if ($rs->id == $data->parent_id) selected="selected" @endif>
+                  {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title )}}</option>
+              @endforeach
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+
         <div class="form-group row">
           <label
             for="baslik"
             class="col-sm-3 text-end control-label col-form-label"
-            >Başlık</label
+            ><b>Başlık</b></label
           >
           <div class="col-sm-9">
             <input
@@ -53,7 +75,7 @@
           <label
             for="anahtarKelime"
             class="col-sm-3 text-end control-label col-form-label"
-            >Anahtar Kelime</label
+            ><b>Anahtar Kelime</b></label
           >
           <div class="col-sm-9">
             <input
@@ -71,7 +93,7 @@
           <label
             for="aciklama"
             class="col-sm-3 text-end control-label col-form-label"
-            >Açıklama</label
+            ><b>Açıklama</b></label
           >
           <div class="col-sm-9">
             <input
@@ -86,7 +108,7 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resim</label>
+          <label class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Resim</b></label>
           <div class="col-md-3">
             <div class="custom-file">
               <input
@@ -97,6 +119,13 @@
 
               />
 
+
+              <form class="form-horizontal" action="{{route('admin.category.update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                @csrf
+                  <a href="{{route('admin.category.ImageDestory', ['id'=>$data->id])}}" onClick="return confirm('Mevcut resmi silmek istediğine emin misin?')" class="btn btn-danger">Mevcut Resimi Kaldır</a>
+              </form>
+
+
               <div class="invalid-feedback">
                 Example invalid custom file feedback
               </div>
@@ -106,7 +135,7 @@
 
 
         <div class="form-group row">
-          <label class="col-md-3 mt-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Durum</label>
+          <label class="col-md-3 mt-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Durum</b></label>
           <div class="col-md-9">
             <select name="status"
               class="select2 form-select shadow-none"
