@@ -19,7 +19,7 @@ class CreateProjectsTable extends Migration
             $table->foreignId('user_id')->nullable();
             $table->string('title');
             $table->string('keywords')->nullable();
-            $table->string('descripton')->nullable();
+            $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->text('detail')->nullable();
             $table->string('videlink')->nullable();

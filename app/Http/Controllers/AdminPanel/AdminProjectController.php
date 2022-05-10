@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -30,7 +31,7 @@ class AdminProjectController extends Controller
      */
     public function create()
     {
-      $data  = Project::all();
+      $data  = Category::all();
       return view('admin.project.create',[
         'data' => $data
       ]);
@@ -44,26 +45,29 @@ class AdminProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Category();
-        $data->parent_id = $request->parent_id;
-        $data->title = $request->baslik;
-        $data->keywords = $request->anahtarKelime;
-        $data->description = $request->aciklama;
+        $data = new Project();
+        $data->category_id = $request->category_id;
+        $data->user_id = 0;
+        $data->title = $request->title;
+        $data->keywords = $request->keywords;
+        $data->description = $request->description;
+        $data->detail = $request->detail;
+        $data->videlink = $request->videlink;
         $data->status = $request->status;
         if($request->file('image')){
           $data->image = $request->file('image')->store('images');
         }
         $data->save();
-        return redirect('admin/category');
+        return redirect('admin/project');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category, $id)
+    public function show(Project $project, $id)
     {
       $data  = Project::find($id);
       return view('admin.project.show',[
@@ -74,13 +78,13 @@ class AdminProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category, $id)
+    public function edit(Project $project, $id)
     {
       $data  = Project::find($id);
-      $datalist = Project::all();
+      $datalist = Category::all();
       return view('admin.project.edit',[
         'data' => $data,
         'datalist' => $datalist
@@ -91,53 +95,58 @@ class AdminProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category, $id)
+    public function update(Request $request, Project $project, $id)
     {
       $data  = Project::find($id);
-      $data->parent_id = $request->parent_id;
-      $data->title = $request->baslik;
-      $data->keywords = $request->anahtarKelime;
-      $data->description = $request->aciklama;
+      $data->category_id = $request->category_id;
+      $data->user_id = 0; //$request->category_id;
+      $data->title = $request->title;
+      $data->keywords = $request->keywords;
+      $data->description = $request->description;
+      $data->detail = $request->detail;
+      $data->videlink = $request->videlink;
       $data->status = $request->status;
       if($request->file('image')){
         $data->image = $request->file('image')->store('images');
       }
       $data->save();
-      return redirect('admin/category');
+      return redirect('admin/project');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category, $id)
+    public function destroy(Project $project, $id)
     {
         $data  = Project::find($id);
         Storage::delete($data->image);
         $data->delete();
-        return redirect('admin/category');
+        return redirect('admin/project');
 
     }
 
-    public function ImageDestroy(Category $category, $id)
+    public function ImageDestroy(Project $project, $id)
     {
           $data  = Project::find($id);
           if($data->image){
             Storage::delete($data->image);
             $data->image = null;
             $data->save();
-            return redirect('admin/category/edit/'.$id);
+            return redirect('admin/project/edit/'.$id);
           }
           else {
             echo '<script type ="text/JavaScript">';
             echo 'alert("Resim zaten yok!")';
             echo '</script>';
-            header("refresh:1;url=../../../admin/category/edit/$id");
+            header("refresh:1;url=../../../admin/project/edit/$id");
           }
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title','Kategori Düzenle')
+@section('title','Proje Düzenle')
 
 @section('head')
 
@@ -10,7 +10,7 @@
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
-        <h4 class="page-title">Kategori Düzenle</h4>
+        <h4 class="page-title">Proje Düzenle</h4>
         <div class="ms-auto text-end">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -28,24 +28,23 @@
 <div class="container-fluid">
   <div class="col-md-6">
   <div class="card">
-    <form class="form-horizontal" action="{{route('admin.category.update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" action="{{route('admin.project.update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
       @csrf
 
       <div class="card-body">
-        <h4 class="card-title"><b>{{$data->title}}</b> Kategorisini Düzenle</h4><br>
+        <h4 class="card-title"><b>{{$data->title}}</b> Projesini Düzenle</h4><br>
 
 
         <div class="form-group row">
           <label
             for="baslik"
-            class="col-sm-3 text-end control-label col-form-label"><b>Ana Kategori</b></label>
+            class="col-sm-3 text-end control-label col-form-label"><b>Ana Proje</b></label>
             <div class="col-md-9">
-            <select name="parent_id"
+            <select name="category_id"
               class="select2 form-select shadow-none"
               style="width: 100%; height: 36px">
-              <option value="0" selected="selected">Ana Kategori</option>
               @foreach($datalist as $rs)
-                <option value="{{$rs->id}}" @if ($rs->id == $data->parent_id) selected="selected" @endif>
+                <option value="{{$rs->id}}" @if ($rs->id == $data->category_id) selected="selected" @endif>
                   {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title )}}</option>
               @endforeach
               </optgroup>
@@ -66,7 +65,7 @@
               type="text"
               class="form-control"
               id="baslik"
-              name="baslik"
+              name="title"
               placeholder="Başlık giriniz.."
             />
           </div>
@@ -83,7 +82,7 @@
               type="text"
               class="form-control"
               id="anahtarKelime"
-              name="anahtarKelime"
+              name="keywords"
               placeholder="Anahtar kelime giriniz..."
             />
           </div>
@@ -101,8 +100,44 @@
               type="text"
               class="form-control"
               id="aciklama"
-              name="aciklama"
+              name="description"
               placeholder="Açıklama giriniz..."
+            />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label
+            for="aciklama"
+            class="col-sm-3 text-end control-label col-form-label"
+            ><b>Detay Bilgisi</b></label
+          >
+          <div class="col-sm-9">
+            <textarea
+              type="text"
+              class="form-control"
+              id="detail"
+              name="detail"
+              placeholder="Detay giriniz..."
+            />{{$data->detail}}</textarea>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label
+            for="aciklama"
+            class="col-sm-3 text-end control-label col-form-label"
+            ><b>Videlink</b></label
+          >
+          <div class="col-sm-9">
+            <input
+            value="{{$data->videlink}}"
+              type="text"
+              class="form-control"
+              id="videlink"
+              name="videlink"
+              placeholder="Videlink giriniz..."
             />
           </div>
         </div>
@@ -120,9 +155,9 @@
               />
 
 
-              <form class="form-horizontal" action="{{route('admin.category.update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" action="{{route('admin.project.update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                 @csrf
-                  <a href="{{route('admin.category.ImageDestory', ['id'=>$data->id])}}" onClick="return confirm('Mevcut resmi silmek istediğine emin misin?')" class="btn btn-danger">Mevcut Resimi Kaldır</a>
+                  <a href="{{route('admin.project.ImageDestory', ['id'=>$data->id])}}" onClick="return confirm('Mevcut resmi silmek istediğine emin misin?')" class="btn btn-danger">Mevcut Resimi Kaldır</a>
               </form>
 
 

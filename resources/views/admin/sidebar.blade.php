@@ -21,7 +21,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/admin/projects"
+                  href="{{route('admin.project.index')}}"
                   aria-expanded="false"
                   ><i class="mdi mdi-animation"></i
                   ><span class="hide-menu">Projeler</span></a

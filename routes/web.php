@@ -37,6 +37,7 @@ Route::get('/registration',[HomeController::class, 'registration'])->name('regis
 // ********************************** ADMIN PANEL ROUTING *******************************************
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('/dashboard',[AdminHomeController::class, 'dashboard'])->name('adminDashboard');
+
     // ******************************** ADMIN CATEGORY ROUTES *******************************************
     Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function() {
         Route::get('', 'index')->name('index');
