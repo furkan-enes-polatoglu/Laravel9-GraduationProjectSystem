@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title','Kategori Detay')
+@section('title','Proje Detay')
 
 @section('head')
 
@@ -10,14 +10,14 @@
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
-        <h4 class="page-title">Kategori Detay</h4>
+        <h4 class="page-title">Proje Detay</h4>
         <div class="ms-auto text-end">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/admin/category">Kategori Listesi</a></li>
+                    <li class="breadcrumb-item"><a href="/admin/project">Proje Listesi</a></li>
                     <li class="breadcrumb-item active" aria-current="page">
-                      Kategori Detay
+                      Proje Detay
                     </li>
                   </ol>
 
@@ -35,7 +35,7 @@
 
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><a href="{{route('admin.category.edit', ['id'=>$data->id])}}" class="btn btn-secondary">Düzenle</a> &nbsp; <a href="{{route('admin.category.edit', ['id'=>$data->id])}}" onClick="return confirm('Silmek istediğine emin misin?')" class="btn btn-danger">Sil</a></h5>
+      <h5 class="card-title"><a href="{{route('admin.project.edit', ['id'=>$data->id])}}" class="btn btn-secondary">Düzenle</a> &nbsp; <a href="{{route('admin.project.edit', ['id'=>$data->id])}}" onClick="return confirm('Silmek istediğine emin misin?')" class="btn btn-danger">Sil</a></h5>
       <div class="table-responsive">
         <table
           id="zero_config"
@@ -50,7 +50,9 @@
             </tr>
             <tr>
               <td><b>Ana Kategori</b></td>
-              <td>{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data, $data->title) }}</td>
+              <td>
+                {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data->category, $data->category->title) }}
+              </td>
             </tr>
             <tr>
               <td><b>Başlık</b></td>
@@ -61,8 +63,22 @@
               <td>{{$data->keywords}}</td>
             </tr>
             <tr>
+              <td><b>Açıklama</b></td>
+              <td>{{$data->description}}</td>
+            </tr>
+            <tr>
+              <td><b>Detay Bilgisi</b></td>
+              <td>{{$data->detail}}</td>
+            </tr>
+            <tr>
+              <td><b>Videlink</b></td>
+              <td>{{$data->videlink}}</td>
+            </tr>
+            <tr>
               <td><b>Resim</b></td>
-              <td>{{$data->image}}</td>
+              <td>  @if ($data->image)
+                  <img src="{{Storage::url($data->image)}}" style="height:100px; width:175px;">
+                @endif</td>
             </tr>
             <tr>
               <td><b>Durum</b></td>
