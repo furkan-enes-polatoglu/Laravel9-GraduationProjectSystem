@@ -11,7 +11,7 @@ class HomeController extends Controller
 
 
   public function index() {
-    $sliderdata=Project::limit(4)->get();
+    $sliderdata=Project::limit(50)->get();
     return view('/home/index',[
       'sliderdata'=>$sliderdata
     ]);
