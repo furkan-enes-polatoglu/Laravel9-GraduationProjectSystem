@@ -30,7 +30,7 @@
                            <li class=""><a href="/home">Anasayfa</a></li>
                            <!-- <li><a href="/features">Özellikler</a></li> -->
                            <li><a href="/about">Hakkımızda</a></li>
-                           <li><a href="/portfolio">Projeler</a></li>
+                           <li><a href="/project">Projeler</a></li>
                            <li><a href="/faq">SSS</a></li>
                            <li><a href="/contact">İletişim</a></li>
                            <li><a href="/login">Oturum Aç</a></li>

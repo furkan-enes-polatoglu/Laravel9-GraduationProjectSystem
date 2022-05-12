@@ -30,7 +30,7 @@ Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
 // Route::get('/features',[HomeController::class, 'features'])->name('features');
 Route::get('/login',[HomeController::class, 'login'])->name('login');
-Route::get('/portfolio',[HomeController::class, 'portfolio'])->name('portfolio');
+Route::get('/project',[HomeController::class, 'project'])->name('project');
 Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
 
 
