@@ -39,6 +39,7 @@
             <th scope="col"><b>Detay</b></th>
             <th scope="col"><b>Videlink</b></th>
             <th scope="col"><b>Resim</b></th>
+            <th scope="col"><b>Resim Galerisi</b></th>
             <th scope="col"><b>Durum</b></th>
             <th scope="col"><b>Düzenle</b></th>
             <th scope="col"><b>Sil</b></th>
@@ -58,6 +59,11 @@
               @if ($rs->image)
                 <img src="{{Storage::url($rs->image)}}" style="height:50px; width:100px;">
               @endif
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="{{route('admin.image.index', ['pid'=>$rs->id])}}" onclick="return !window.open(this.href, '','top=50 left=100 width=1100, height=700')">
+                <img src="{{asset('admin')}}/assets/images/gallery.png" style="height:40px">
+              </a>
             </td>
             <td>{{$rs->status}}</td>
             <td>

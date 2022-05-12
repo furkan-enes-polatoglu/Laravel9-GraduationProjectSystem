@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
 use App\Http\Controllers\AdminPanel\AdminProjectController as AdminProjectController;
+use App\Http\Controllers\AdminPanel\ImageController as AdminImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
 
     // ******************************** ADMIN CATEGORY ROUTES *******************************************
     Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function() {
-        Route::get('', 'index')->name('index');
+        Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
         Route::get('/edit/{id}', 'edit')->name('edit');
@@ -52,7 +53,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
 
     // ******************************** ADMIN PROJECT ROUTES *******************************************
     Route::prefix('/project')->name('project.')->controller(AdminProjectController::class)->group(function() {
-        Route::get('', 'index')->name('index');
+        Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
         Route::get('/edit/{id}', 'edit')->name('edit');
@@ -62,6 +63,14 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/ImageDestory/{id}', 'ImageDestroy')->name('ImageDestory');  // /admin.category.ImageDestory
     });
 
+    // ******************************** ADMIN PROJECT IMAGE GALLERY ROUTES *******************************************
+    Route::prefix('/image')->name('image.')->controller(AdminImageController::class)->group(function() {
+        Route::get('/{pid}', 'index')->name('index');
+        //Route::post('/create/{pid}', 'create')->name('create');
+        Route::post('/store/{pid}', 'store')->name('store');
+        Route::get('/delete/{pid}/{id}', 'destroy')->name('destory');
+
+    });
 });
 
 
