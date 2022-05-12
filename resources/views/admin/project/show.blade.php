@@ -68,7 +68,7 @@
             </tr>
             <tr>
               <td><b>Detay Bilgisi</b></td>
-              <td>{{$data->detail}}</td>
+              <td>{!! $data->detail !!}</td>
             </tr>
             <tr>
               <td><b>Videlink</b></td>

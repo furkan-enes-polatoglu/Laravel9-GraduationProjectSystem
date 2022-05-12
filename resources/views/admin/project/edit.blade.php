@@ -2,7 +2,9 @@
 
 @section('title','Proje Düzenle')
 
-@section('head')
+@section('head2')
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 
 @section('content')
 
@@ -120,6 +122,18 @@
               name="detail"
               placeholder="Detay giriniz..."
             />{{$data->detail}}</textarea>
+
+            <script>
+                        ClassicEditor
+                                .create( document.querySelector( '#detail' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
+
           </div>
         </div>
 

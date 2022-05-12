@@ -53,7 +53,7 @@
             <td>{{$rs->id}}</td>
             <td>{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category, $rs->category->title) }}</td>
             <td>{{$rs->title}}</td>
-            <td>{{$rs->detail}}</td>
+            <td>{!! $rs->detail !!}</td>
             <td>{{$rs->videlink}}</td>
             <td>
               @if ($rs->image)
