@@ -62,7 +62,9 @@
             </tr>
             <tr>
               <td><b>Resim</b></td>
-              <td>{{$data->image}}</td>
+              <td>@if ($data->image)
+                  <img src="{{Storage::url($data->image)}}" style="height:100px; width:175px;">
+                @endif</td>
             </tr>
             <tr>
               <td><b>Durum</b></td>
