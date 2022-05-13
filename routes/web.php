@@ -33,6 +33,8 @@ Route::get('/login',[HomeController::class, 'login'])->name('login');
 Route::get('/project',[HomeController::class, 'project'])->name('project');
 Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
 
+Route::get('/projectdetail/{id}',[HomeController::class, 'projectdetail'])->name('projectdetail');
+
 
 
 // ********************************** ADMIN PANEL ROUTING *******************************************

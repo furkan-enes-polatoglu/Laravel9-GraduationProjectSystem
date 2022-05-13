@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
@@ -15,7 +16,14 @@ class HomeController extends Controller
     return view('/home/index',[
       'sliderdata'=>$sliderdata
     ]);
+  }
 
+
+  public function projectdetail($id) {
+    $data = Project::find($id);
+    return view('/home/projectdetail',[
+      'data'=>$data
+    ]);
   }
 
 
