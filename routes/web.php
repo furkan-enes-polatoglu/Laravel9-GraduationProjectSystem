@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
 use App\Http\Controllers\AdminPanel\AdminProjectController as AdminProjectController;
 use App\Http\Controllers\AdminPanel\ImageController as AdminImageController;
+use App\Http\Controllers\AdminPanel\MessageController as AdminMessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,16 +25,19 @@ Route::get('/index2',[HomeController::class, 'index2'])->name('index2');
 
 
 // *********************************** WEB PANEL ROUTING  ******************************************
-Route::get('/home',[HomeController::class, 'index'])->name('index');
-Route::get('/about',[HomeController::class, 'about'])->name('about');
+Route::get('/home',[HomeController::class, 'index'])->name('home');
+Route::get('/about',[HomeController::class, 'about'])->name('aboutus');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
+Route::get('/references',[HomeController::class, 'references'])->name('references');
 // Route::get('/features',[HomeController::class, 'features'])->name('features');
 Route::get('/login',[HomeController::class, 'login'])->name('login');
 Route::get('/project',[HomeController::class, 'project'])->name('project');
-Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
-
 Route::get('/projectdetail/{id}',[HomeController::class, 'projectdetail'])->name('projectdetail');
+Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
+Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('storemessage');
+
+
 
 
 
@@ -75,6 +79,17 @@ Route::prefix('admin')->name('admin.')->group(function() {
         //Route::post('/create/{pid}', 'create')->name('create');
         Route::post('/store/{pid}', 'store')->name('store');
         Route::get('/delete/{pid}/{id}', 'destroy')->name('destory');
+
+    });
+
+    // ******************************** ADMIN MESSAGE ROUTES *******************************************
+    Route::prefix('/message')->name('message.')->controller(AdminMessageController::class)->group(function() {
+        Route::get('/', 'index')->name('index');
+        //Route::post('/create/{pid}', 'create')->name('create');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('destory');
+
 
     });
 });

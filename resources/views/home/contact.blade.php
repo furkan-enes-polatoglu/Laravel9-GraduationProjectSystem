@@ -1,6 +1,9 @@
 @extends('layouts.frontbase')
 
-@section('title','İletişim')
+@section('title','İletişim | '.$setting->title)
+@section('description', $setting->description)
+@section('keywords', $setting->keywords)
+@section('icon', Storage::url($setting->icon))
 
 @section('head')
 
@@ -17,16 +20,16 @@
     <section id="top_banner">
         <div class="banner">
             <div class="inner text-center">
-                <h2>Lorem ipsum dolor sit amet</h2>
+                <h2>HİÇBİRİMİZ HEPİMİZ KADAR İYİ OLAMAYIZ</h2>
             </div>
         </div>
         <div class="page_info">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-6">
-                        <h4>Contact</h4>
+                        <h4>İletişim</h4>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:right;">Home<span class="sep"> / </span><span class="current">Contact</span></div>
+                    <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:right;">Anasayfa<span class="sep"> / </span><span class="current">İletişim</span></div>
                 </div>
             </div>
         </div>
@@ -36,41 +39,53 @@
     <section id="contact-page">
         <div class="container">
             <div class="section-heading text-center">
-                <h2>Drop your <span>Message</span></h2>
-                <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset nam nostrud euismod volumus ne mei.</p>
+                <h2>Bize <span>Mesaj</span> Bırakın</h2>
+                <p class="subheading">{!! $setting->contact !!}</p><br><br>
+                <p class="subheading"><b>
+
+                @if($message = Session::get('info'))
+                  <?php
+                  echo '<script type ="text/JavaScript">';
+                  echo 'alert("Mesajınız gönderildi, teşekkürler!")';
+                  echo '</script>';
+                  header("refresh:1;url=/contact"); ?>
+                @endif</b></p>
+
+
             </div>
             <div class="row contact-wrap">
                 <div class="status alert alert-success" style="display: none"></div>
-                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="{{route('storemessage')}}">
+                  @csrf
                     <div class="col-sm-5 col-sm-offset-1">
                         <div class="form-group">
-                            <label>Name *</label>
+                            <label>Ad Soyad *</label>
                             <input type="text" name="name" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Email *</label>
+                            <label>E-posta *</label>
                             <input type="email" name="email" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Phone</label>
-                            <input type="number" class="form-control">
+                            <label>Telefon</label>
+                            <input type="number" class="form-control" name="phone">
                         </div>
                         <div class="form-group">
-                            <label>Company Name</label>
-                            <input type="text" class="form-control">
+                            <label>Kurum Adı</label>
+                            <input type="text" class="form-control" name="company">
                         </div>
                     </div>
                     <div class="col-sm-5">
                         <div class="form-group">
-                            <label>Subject *</label>
+                            <label>Konu *</label>
                             <input type="text" name="subject" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Message *</label>
+                            <label>Mesaj *</label>
                             <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
                         </div>
                         <div class="form-group">
-                            <button type="submit" name="submit" class="btn btn-default submit-button">Submit Message <i class="fa fa-caret-right"></i></button>
+                            <button type="submit" name="submit" class="btn btn-default submit-button">Mesajı Gönder <i class="fa fa-caret-right"></i></button>
                         </div>
                     </div>
                 </form>
@@ -91,30 +106,13 @@
                             <ul class="row">
                                 <li class="col-sm-6">
                                     <address>
-									<h5>Head Office</h5>
-									<p>Aspire Software Solutions <br>
-									202, Parishram Complex,<br>
-									Mithakhali Six Roads,<br>
-									Navrangpura, Ahmedabad,<br>
-									Gujarat, India. </p>
-										<p>Phone:+91 848 594 5080 <br>
-									Email Address:sales@aspiresoftware.in</p>
+									<h5>Adres</h5>
+									<p>{{$setting->address}}<br>
+									</p>
 								</address>
 
                                 </li>
-                                <li class="col-sm-6">
-                                    <address>
-									<h5>Zone#2 Office</h5>
-									<p>Aspire Software Solutions <br>
-									202, Parishram Complex,<br>
-									Mithakhali Six Roads,<br>
-									Navrangpura, Ahmedabad,<br>
-									Gujarat, India. </p>
-									<p>Phone:+91 848 594 5080 <br>
-									Email Address:sales@aspiresoftware.in</p>
-								</address>
 
-                                </li>
                             </ul>
                         </div>
                     </div>

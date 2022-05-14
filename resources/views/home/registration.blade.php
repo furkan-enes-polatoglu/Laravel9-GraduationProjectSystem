@@ -1,6 +1,9 @@
 @extends('layouts.frontbase')
 
-@section('title','Kayıt Ol')
+@section('title','Kayıt Ol | '.$setting->title)
+@section('description', $setting->description)
+@section('keywords', $setting->keywords)
+@section('icon', Storage::url($setting->icon))
 
 @section('head')
 
@@ -15,7 +18,7 @@
     <section id="top_banner">
         <div class="banner">
             <div class="inner text-center">
-                <h2>Lorem ipsum dolor sit amet</h2>
+                <h2>HİÇBİRİMİZ HEPİMİZ KADAR İYİ OLAMAYIZ</h2>
             </div>
         </div>
     </section>

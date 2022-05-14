@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title','Hakkımızda | '.$setting->title)
+@section('title','Referanslar | '.$setting->title)
 @section('description', $setting->description)
 @section('keywords', $setting->keywords)
 @section('icon', Storage::url($setting->icon))
@@ -19,9 +19,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-6">
-                        <h4>Hakkımızda</h4>
+                        <h4>Referanslar</h4>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:right;">Home<span class="sep"> 	/ </span><span class="current"> About</span></div>
+                    <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:right;">Anasayfa<span class="sep"> 	/ </span><span class="current"> Referanslar</span></div>
                 </div>
             </div>
         </div>
@@ -30,24 +30,21 @@
     </section>
 
 
-    <section id="about-page-section-3">
+    <section id="contact-page">
         <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7 text-align">
+
+
                     <div class="section-heading">
-                        <h2>Hakkımızda</h2><br>
-
+                        <h2>Referanslarımız</h2><br>
                     </div>
-                    <p>
-                        {!! $setting->aboutus !!}
 
-                    </p>
-                    <button type="button" class="btn btn-primary slide">Learn More <i class="fa fa-caret-right"></i></button>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-                    <img height="" width="auto" src="{{asset('assets')}}/img/iphone62.png" class="attachment-full img-responsive" alt="">
-                </div>
-            </div>
+                        {!! $setting->references !!}
+
+
+
+
+
+
         </div>
     </section>
 

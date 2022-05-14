@@ -35,7 +35,7 @@
 
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><a href="{{route('admin.project.edit', ['id'=>$data->id])}}" class="btn btn-secondary">Düzenle</a> &nbsp; <a href="{{route('admin.project.edit', ['id'=>$data->id])}}" onClick="return confirm('Silmek istediğine emin misin?')" class="btn btn-danger">Sil</a></h5>
+      <h5 class="card-title"><a href="{{route('admin.project.edit', ['id'=>$data->id])}}" class="btn btn-secondary">Düzenle</a> &nbsp; <a href="{{route('admin.project.destory', ['id'=>$data->id])}}" onClick="return confirm('Silmek istediğine emin misin?')" class="btn btn-danger">Sil</a></h5>
       <div class="table-responsive">
         <table
           id="zero_config"
