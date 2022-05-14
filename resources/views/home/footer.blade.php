@@ -5,7 +5,7 @@
                 <div class="footer-block">
                     <h4>Address</h4>
                     <hr/>
-                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.
+                    <p>{{$setting->address}}
                     </p>
                     <a href="#" class="learnmore">Learn More <i class="fa fa-caret-right"></i></a>
                 </div>

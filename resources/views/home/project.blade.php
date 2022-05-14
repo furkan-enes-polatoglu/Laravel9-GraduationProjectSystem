@@ -60,7 +60,7 @@
                         <div class="portfolio-head">
                             <div class="portfolio-img"><img alt="" src="{{Storage::url($rs->image)}}" style="width:360px; height:360px;"></div>
                             <div class="portfolio-hover">
-                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+                                <a class="portfolio-link" href="/projectdetail/{{$rs->id}}"><i class="fa fa-link"></i></a>
                                 <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
                             </div>
                         </div>

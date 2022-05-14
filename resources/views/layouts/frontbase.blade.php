@@ -2,6 +2,10 @@
     <head>
 
         <title>@yield('title')</title>
+        <meta name="description" content="@yield('description')">
+        <meta name="keywords" content="@yield('keywords')">
+        <meta name="author" content="Furkan Enes Polatoğlu">
+        <link rel="icon" type="image/x-icon" href="@yield('icon')">
 
         @section('head')
         <head>
@@ -16,7 +20,7 @@
           <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
           <script src="{{asset('assets')}}/script/index.js"></script>
 
-<!-- START SLİDER CSS -->
+          <!-- START SLİDER CSS -->
 
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <style>
@@ -85,6 +89,32 @@
           </style>
 
 <!-- END OF SLİDER CSS -->
+
+
+
+
+<!-- PROJECT DETAİL TABLE STYLE -->
+
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+
+</style>
+
+<!-- END OF PROJECT DETAİL TABLE STYLE -->
 
         </head>
       @show

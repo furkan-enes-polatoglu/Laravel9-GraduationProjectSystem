@@ -41,6 +41,10 @@ Route::get('/projectdetail/{id}',[HomeController::class, 'projectdetail'])->name
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('/dashboard',[AdminHomeController::class, 'dashboard'])->name('adminDashboard');
 
+    // ******************************** GENERAL ROUTES *******************************************
+        Route::get('/setting',[AdminHomeController::class, 'setting'])->name('setting');
+        Route::post('/setting/update',[AdminHomeController::class, 'settingUpdate'])->name('setting.update');
+
     // ******************************** ADMIN CATEGORY ROUTES *******************************************
     Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function() {
         Route::get('/', 'index')->name('index');

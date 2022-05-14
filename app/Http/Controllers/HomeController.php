@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use App\Models\Setting;
+
 
 class HomeController extends Controller
 {
@@ -13,35 +16,76 @@ class HomeController extends Controller
 
   public function index() {
     $sliderdata=Project::limit(50)->get();
+    $setting = Setting::first();
     return view('/home/index',[
-      'sliderdata'=>$sliderdata
+      'sliderdata'=>$sliderdata,
+      'setting'=>$setting
+    ]);
+  }
+
+
+  public function project() {
+    $projectlist1=Project::limit(50)->get();
+    $setting = Setting::first();
+    return view('/home/project',[
+      'projectlist1'=>$projectlist1,
+      'setting'=>$setting
     ]);
   }
 
 
   public function projectdetail($id) {
     $data = Project::find($id);
+    $setting = Setting::first();
+    $images = DB::table('images')->where('project_id',$id)->get();
     return view('/home/projectdetail',[
-      'data'=>$data
+      'data'=>$data,
+      'images'=>$images,
+      'setting'=>$setting
     ]);
   }
 
 
-  public function about() { return view('/home/about'); }
-  public function contact() { return view('/home/contact'); }
-  public function faq() { return view('/home/faq'); }
+  public function about() {
+    $setting = Setting::first();
+    return view('/home/about',[
+      'setting'=>$setting
+    ]);
+  }
+
+
+  public function contact() {
+    $setting = Setting::first();
+    return view('/home/contact', [
+      'setting'=>$setting
+    ]);
+  }
+
+
+  public function faq() {
+    $setting = Setting::first();
+    return view('/home/faq', [
+      'setting'=>$setting
+    ]);
+  }
+
+
   //public function features() { return view('/home/features'); }
-  public function login() { return view('/home/login'); }
-
-
-  public function project() {
-    $projectlist1=Project::limit(50)->get();
-    return view('/home/project',[
-      'projectlist1'=>$projectlist1
+  public function login() {
+    $setting = Setting::first();
+    return view('/home/login', [
+      'setting'=>$setting
     ]);
   }
 
-  public function registration() { return view('/home/registration'); }
+
+
+  public function registration() {
+    $setting = Setting::first();
+    return view('/home/registration', [
+      'setting'=>$setting
+    ]);
+  }
 
 
     /*public function save(Request $request){
