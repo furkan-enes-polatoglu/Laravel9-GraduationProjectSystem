@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title','Proje Düzenle')
+@section('title','SSS  Düzenle')
 
 @section('head2')
 <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
@@ -12,7 +12,7 @@
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
-        <h4 class="page-title">Proje Düzenle</h4>
+        <h4 class="page-title">SSS Düzenle</h4>
         <div class="ms-auto text-end">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -29,103 +29,53 @@
 
 <div class="container-fluid">
   <div class="col-md-6">
-  <div class="card">
-    <form class="form-horizontal" action="{{route('admin.project.update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+  <div class="card" >
+    <form class="form-horizontal" action="{{route('admin.faq.update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
       @csrf
 
       <div class="card-body">
-        <h4 class="card-title"><b>{{$data->title}}</b> Projesini Düzenle</h4><br>
+        <h4 class="card-title">SSS: <b>{{$data->question}}</b></h4><br>
 
-
-        <div class="form-group row">
-          <label
-            for="baslik"
-            class="col-sm-3 text-end control-label col-form-label"><b>Ana Proje</b></label>
-            <div class="col-md-9">
-            <select name="category_id"
-              class="select2 form-select shadow-none"
-              style="width: 100%; height: 36px">
-              @foreach($datalist as $rs)
-                <option value="{{$rs->id}}" @if ($rs->id == $data->category_id) selected="selected" @endif>
-                  {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title )}}</option>
-              @endforeach
-              </optgroup>
-            </select>
-          </div>
-        </div>
 
 
         <div class="form-group row">
           <label
-            for="baslik"
+            for="question"
             class="col-sm-3 text-end control-label col-form-label"
-            ><b>Başlık</b></label
+            ><b>Soru</b></label
           >
           <div class="col-sm-9">
             <input
-            value="{{$data->title}}"
+            value="{{$data->question}}"
               type="text"
               class="form-control"
-              id="baslik"
-              name="title"
-              placeholder="Başlık giriniz.."
-            />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label
-            for="anahtarKelime"
-            class="col-sm-3 text-end control-label col-form-label"
-            ><b>Anahtar Kelime</b></label
-          >
-          <div class="col-sm-9">
-            <input
-            value="{{$data->keywords}}"
-              type="text"
-              class="form-control"
-              id="anahtarKelime"
-              name="keywords"
-              placeholder="Anahtar kelime giriniz..."
+              id="question"
+              name="question"
+              placeholder="Soru giriniz.."
             />
           </div>
         </div>
 
-        <div class="form-group row">
-          <label
-            for="aciklama"
-            class="col-sm-3 text-end control-label col-form-label"
-            ><b>Açıklama</b></label
-          >
-          <div class="col-sm-9">
-            <input
-            value="{{$data->description}}"
-              type="text"
-              class="form-control"
-              id="aciklama"
-              name="description"
-              placeholder="Açıklama giriniz..."
-            />
-          </div>
-        </div>
+
 
         <div class="form-group row">
           <label
-            for="aciklama"
+            for="answer"
             class="col-sm-3 text-end control-label col-form-label"
-            ><b>Detay Bilgisi</b></label
+            ><b>Cevap</b></label
           >
           <div class="col-sm-9">
             <textarea
               type="text"
               class="form-control"
-              id="detail"
-              name="detail"
-              placeholder="Detay giriniz..."
-            />{{$data->detail}}</textarea>
+              id="answer"
+              name="answer"
+              placeholder="Cevap giriniz..."
+            />{{$data->answer}}</textarea>
 
             <script>
                         ClassicEditor
-                                .create( document.querySelector( '#detail' ) )
+                                .create( document.querySelector( '#answer' ) )
                                 .then( editor => {
                                         console.log( editor );
                                 } )
@@ -137,50 +87,6 @@
           </div>
         </div>
 
-
-        <div class="form-group row">
-          <label
-            for="aciklama"
-            class="col-sm-3 text-end control-label col-form-label"
-            ><b>Videlink</b></label
-          >
-          <div class="col-sm-9">
-            <input
-            value="{{$data->videlink}}"
-              type="text"
-              class="form-control"
-              id="videlink"
-              name="videlink"
-              placeholder="Videlink giriniz..."
-            />
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Resim</b></label>
-          <div class="col-md-3">
-            <div class="custom-file">
-              <input
-                type="file"
-                class="custom-file-input"
-                id="image"
-                name="image"
-
-              />
-
-
-              <form class="form-horizontal" action="{{route('admin.project.update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
-                @csrf
-                  <a href="{{route('admin.project.ImageDestory', ['id'=>$data->id])}}" onClick="return confirm('Mevcut resmi silmek istediğine emin misin?')" class="btn btn-danger">Mevcut Resimi Kaldır</a>
-              </form>
-
-
-              <div class="invalid-feedback">
-                Example invalid custom file feedback
-              </div>
-            </div>
-          </div>
-        </div>
 
 
         <div class="form-group row">
@@ -197,6 +103,9 @@
             </select>
           </div>
         </div>
+
+
+
 
 
 

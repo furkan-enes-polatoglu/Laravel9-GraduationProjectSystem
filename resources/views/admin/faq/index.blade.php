@@ -39,7 +39,6 @@
             <th scope="col"><b>Durum</b></th>
             <th scope="col"><b>Düzenle</b></th>
             <th scope="col"><b>Sil</b></th>
-            <th scope="col"><b>Göster</b></th>
 
           </tr>
         </thead>
@@ -48,7 +47,7 @@
           <tr>
             <td>{{$rs->id}}</td>
             <td>{{$rs->question}}</td>
-            <td>{{$rs->answer}}</td>
+            <td>{!! $rs->answer !!}</td>
             <td>{{$rs->status}}</td>
             <td>
                 <a href="{{route('admin.faq.edit', ['id'=>$rs->id])}}" class="btn btn-secondary">Düzenle</a>
@@ -56,9 +55,7 @@
             <td>
                 <a href="{{route('admin.faq.destory', ['id'=>$rs->id])}}"  class="btn btn-danger" onClick="return confirm('Silmek istediğine emin misin?')">Sil</a>
             </td>
-            <td>
-                <a href="{{route('admin.faq.show', ['id'=>$rs->id])}}" class="btn btn-primary">Göster</a>
-            </td>
+
 
 
           </tr>

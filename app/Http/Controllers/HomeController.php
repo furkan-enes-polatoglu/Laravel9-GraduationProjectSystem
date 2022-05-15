@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\Setting;
 use App\Models\Message;
+use App\Models\Faq;
 
 
 class HomeController extends Controller
@@ -81,8 +82,10 @@ class HomeController extends Controller
 
   public function faq() {
     $setting = Setting::first();
+    $datalist = Faq::all();
     return view('home.faq', [
-      'setting'=>$setting
+      'setting'=>$setting,
+      'datalist'=>$datalist
     ]);
   }
 

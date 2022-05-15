@@ -69,19 +69,28 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data  = Faq::find($id);
+        return view('admin.faq.edit',[
+          'data' => $data
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param \App\Model\Faq $faq
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+      $data = Faq::find($id);
+      $data->question = $request->question;
+      $data->answer = $request->answer;
+      $data->status = $request->status;
+      $data->save();
+      return redirect('admin/faq');
     }
 
     /**
@@ -90,8 +99,10 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Faq $faq, $id)
     {
-        //
+        $data  = Faq::find($id);
+        $data->delete();
+        return redirect('admin/faq');
     }
 }
