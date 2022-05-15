@@ -72,7 +72,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/admin/faq"
+                  href="{{route('admin.faq.index')}}"
                   aria-expanded="false"
                   ><i class="mdi mdi-comment-question-outline"></i
                   ><span class="hide-menu">SSS</span></a

@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryControlle
 use App\Http\Controllers\AdminPanel\AdminProjectController as AdminProjectController;
 use App\Http\Controllers\AdminPanel\ImageController as AdminImageController;
 use App\Http\Controllers\AdminPanel\MessageController as AdminMessageController;
+use App\Http\Controllers\AdminPanel\FaqController as AdminFaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,6 @@ Route::get('/project',[HomeController::class, 'project'])->name('project');
 Route::get('/projectdetail/{id}',[HomeController::class, 'projectdetail'])->name('projectdetail');
 Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
 Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('storemessage');
-
-
 
 
 
@@ -90,7 +89,17 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::post('/update/{id}', 'update')->name('update');
         Route::get('/delete/{id}', 'destroy')->name('destory');
 
+    });
 
+    // ********************************** ADMİN FAQ ROUTES *******************************************
+    Route::prefix('/faq')->name('faq.')->controller(AdminFaqController::class)->group(function() {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('destory');
+        Route::get('/show/{id}', 'show')->name('show');
     });
 });
 
