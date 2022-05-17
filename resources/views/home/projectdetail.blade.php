@@ -45,7 +45,7 @@
 
     <div class="w3-content w3-display-container">
       @foreach($images as $rs)
-        <img class="mySlides" src="{{Storage::url($rs->image)}}" style="width:980px; height:600px;">
+        <img class="mySlides" src="{{Storage::url($rs->image)}}" style="width:980px; height:500px;">
       @endforeach
 
       <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
