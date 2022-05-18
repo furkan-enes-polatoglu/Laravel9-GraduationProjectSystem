@@ -95,6 +95,50 @@
 
 </table>
 
+
+<br><br>
+<table align="center" width="800px;">
+
+<tr>
+  <td align="center">
+    <h2>Bir <span>yorum</span> yazın!</h2>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <div class="form-group">
+        <label>Konu: </label>
+        <input type="text" name="subject" class="form-control" required="required" placeholder="Konu giriniz...">
+    </div>
+  </td>
+</tr>
+
+
+<tr>
+  <td>
+    <div class="form-group">
+        <label>Yorum: </label>
+        <textarea name="message" id="comment" required="required" class="form-control" rows="8" placeholder="Yorum giriniz..."></textarea>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <div class="form-group">
+        <button type="submit" name="submit" class="btn btn-default submit-button">Yorum  Gönder <i class="fa fa-caret-right"></i></button>
+    </div>
+  </td>
+</tr>
+</table>
+
+
 <br><br>
 
 
