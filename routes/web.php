@@ -32,11 +32,12 @@ Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
 Route::get('/references',[HomeController::class, 'references'])->name('references');
 // Route::get('/features',[HomeController::class, 'features'])->name('features');
-Route::get('/login',[HomeController::class, 'login'])->name('login');
+//Route::get('/login',[HomeController::class, 'login'])->name('login');
 Route::get('/project',[HomeController::class, 'project'])->name('project');
 Route::get('/projectdetail/{id}',[HomeController::class, 'projectdetail'])->name('projectdetail');
 Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
 Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('storemessage');
+Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
 
 
 

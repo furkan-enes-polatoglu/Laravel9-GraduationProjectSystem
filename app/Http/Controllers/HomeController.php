@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Setting;
 use App\Models\Message;
 use App\Models\Faq;
+use App\Models\Comment;
 
 
 class HomeController extends Controller
@@ -77,6 +79,21 @@ class HomeController extends Controller
     $data->save();
 
     return redirect()->route('contact')->with('info','Mesajınız gönderildi!');
+  }
+
+
+
+  public function storecomment(Request $request) {
+    //dd($request);
+    $data = new Comment();
+    $data->user_id = Auth::id();
+    $data->project_id = $request->input('project_id');
+    $data->comment = $request->input('comment');
+    $data->rate = $request->input('rate');
+    $data->ip = $request->ip();
+    $data->save();
+
+    return redirect()->route('projectdetail', ['id'=>$request->input('project_id')])->with('info','Mesajınız gönderildi!');
   }
 
 

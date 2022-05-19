@@ -6,6 +6,7 @@
 @section('icon', Storage::url($setting->icon))
 
 @section('head')
+@section('head2')
 
 
 @section('content')
@@ -99,12 +100,23 @@
 <br><br>
 <table align="center" width="800px;">
 
+  @if($comment = Session::get('info'))
+    <?php
+    echo '<script type ="text/JavaScript">';
+    echo 'alert("Yorumunuz gönderildi, teşekkürler!")';
+    echo '</script>';
+    header("refresh:1;url=/contact"); ?>
+  @endif</b></p>
+
 <tr>
   <td align="center">
     <h2>Bir <span>yorum</span> yazın!</h2>
   </td>
 </tr>
 
+<form action="{{route('storecomment')}}" method="post">
+  @csrf
+  <input type="hidden" name="project_id" value="{{$data->id}}">
 <tr>
   <td>
     <div class="form-group">
@@ -119,21 +131,91 @@
   <td>
     <div class="form-group">
         <label>Yorum: </label>
-        <textarea name="message" id="comment" required="required" class="form-control" rows="8" placeholder="Yorum giriniz..."></textarea>
+        <textarea name="comment" id="comment" required="required" class="form-control" rows="8" placeholder="Yorum giriniz..."></textarea>
     </div>
   </td>
 </tr>
 
 <tr>
+
+
   <td>
+    <b>Değerlendirme :</b><br>
+    <div class="rating">
+    <label>
+      <input type="radio" id="star1" name="rate" value="1" />
+      <span class="icon">★</span>
+    </label>
+    <label>
+      <input type="radio" id="star2" name="rate" value="2" />
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+    </label>
+    <label>
+      <input type="radio" id="star3" name="rate" value="3" />
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+    </label>
+    <label>
+      <input type="radio" id="star4" name="rate" value="4" />
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+    </label>
+    <label>
+      <input type="radio" id="star5" name="rate" value="5" />
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+    </label>
+</div>
   </td>
 </tr>
 
 <tr>
   <td>
     <div class="form-group">
+      <br>
+      @auth
         <button type="submit" name="submit" class="btn btn-default submit-button">Yorum  Gönder <i class="fa fa-caret-right"></i></button>
+      @else
+      <a href="/login" class="btn btn-default submit-button">Yorum Yazmak İçin Lütfen Giriş Yapın</a>
+
+      @endauth
     </div>
+
+
+
+
+<br><br>
+<div class="container mt-5">
+    <div class="row  d-flex justify-content-center">
+        <div class="col-md-12">
+
+            <div class="card p-3 mt-2">
+              <div class="d-flex justify-content-between align-items-center">
+                  <div class="user d-flex flex-row align-items-center">
+                    <img style="width:50px; height:50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/800px-User_icon_2.svg.png" width="30" class="user-img rounded-circle mr-2">
+                        <span><small class="font-weight-bold text-primary"><b><font size="4px">simona_rnasi: </font></b></small>  <small class="font-weight-bold"><font size="4px" color="black">Thanks</font></small></span>
+
+                  </div>
+                  <small>3 days ago</small>
+              </div>
+                <div class="action d-flex justify-content-between mt-2 align-items-center">
+                  <div class="icons align-items-center">
+                      <i class="fa fa-check-circle-o check-icon text-primary"></i>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
   </td>
 </tr>
 </table>
