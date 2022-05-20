@@ -63,7 +63,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/admin/comments"
+                  href="/admin/comment"
                   aria-expanded="false"
                   ><i class="mdi mdi-comment-text"></i
                   ><span class="hide-menu">Yorumlar</span></a

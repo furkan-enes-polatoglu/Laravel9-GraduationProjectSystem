@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminPanel\AdminProjectController as AdminProjectContro
 use App\Http\Controllers\AdminPanel\ImageController as AdminImageController;
 use App\Http\Controllers\AdminPanel\MessageController as AdminMessageController;
 use App\Http\Controllers\AdminPanel\FaqController as AdminFaqController;
+use App\Http\Controllers\AdminPanel\CommentController as AdminCommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,7 @@ Route::get('/projectdetail/{id}',[HomeController::class, 'projectdetail'])->name
 Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
 Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('storemessage');
 Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
+Route::view('/loginuser', 'auth.login');
 
 
 
@@ -102,6 +104,17 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/delete/{id}', 'destroy')->name('destory');
         Route::get('/show/{id}', 'show')->name('show');
     });
+
+
+    // ******************************** ADMIN COMMENT ROUTES *******************************************
+    Route::prefix('/comment')->name('comment.')->controller(AdminCommentController::class)->group(function() {
+        Route::get('/', 'index')->name('index');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('destory');
+
+    });
+
 });
 
 

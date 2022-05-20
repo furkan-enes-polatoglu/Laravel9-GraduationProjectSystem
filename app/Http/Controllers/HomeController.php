@@ -42,10 +42,12 @@ class HomeController extends Controller
     $data = Project::find($id);
     $setting = Setting::first();
     $images = DB::table('images')->where('project_id',$id)->get();
+    $reviews = Comment::where('project_id',$id)->where('status','True')->get();
     return view('home.projectdetail',[
       'data'=>$data,
       'images'=>$images,
-      'setting'=>$setting
+      'setting'=>$setting,
+      'reviews'=>$reviews
     ]);
   }
 
@@ -108,12 +110,12 @@ class HomeController extends Controller
 
 
   //public function features() { return view('/home/features'); }
-  public function login() {
+  /*public function login() {
     $setting = Setting::first();
     return view('home.login', [
       'setting'=>$setting
     ]);
-  }
+  }*/
 
 
 

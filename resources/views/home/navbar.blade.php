@@ -34,7 +34,7 @@
                            <li><a href="{{route('faq')}}">SSS</a></li>
                            <li><a href="{{route('references')}}">Referanslar</a></li>
                            <li><a href="{{route('contact')}}">İletişim</a></li>
-                           <li><a href="{{route('login')}}">Oturum Aç</a></li>
+                           <li><a href="/loginuser">Oturum Aç</a></li>
                            <li><a href="{{route('registration')}}">Kayıt Ol</a></li>
                        </ul>
                    </div>

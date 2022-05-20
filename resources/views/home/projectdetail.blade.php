@@ -93,6 +93,14 @@
     <td style="width:250px"><b>Detay</b></td>
     <td>{!! $data->detail !!}</td>
   </tr>
+  <tr>
+    <td style="width:250px"><b>Değerlendirme</b></td>
+    @php
+      $average = $data->comment->average('rate');
+    @endphp
+
+    <td> @for ($i=1; $i<=$average; $i++) ★ @endfor &nbsp; {{number_format($average,2)}} / 5  </td>
+  </tr>
 
 </table>
 
@@ -105,7 +113,7 @@
     echo '<script type ="text/JavaScript">';
     echo 'alert("Yorumunuz gönderildi, teşekkürler!")';
     echo '</script>';
-    header("refresh:1;url=/contact"); ?>
+    header("refresh:1;"); ?>
   @endif</b></p>
 
 <tr>
@@ -117,14 +125,6 @@
 <form action="{{route('storecomment')}}" method="post">
   @csrf
   <input type="hidden" name="project_id" value="{{$data->id}}">
-<tr>
-  <td>
-    <div class="form-group">
-        <label>Konu: </label>
-        <input type="text" name="subject" class="form-control" required="required" placeholder="Konu giriniz...">
-    </div>
-  </td>
-</tr>
 
 
 <tr>
@@ -192,28 +192,37 @@
 
 
 <br><br>
+<h4><b>Tüm Yorumlar ({{$data->comment->count('id')}})</b></h4>
+
+@foreach($reviews as $rs)
+
 <div class="container mt-5">
     <div class="row  d-flex justify-content-center">
         <div class="col-md-12">
-
             <div class="card p-3 mt-2">
               <div class="d-flex justify-content-between align-items-center">
                   <div class="user d-flex flex-row align-items-center">
-                    <img style="width:50px; height:50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/800px-User_icon_2.svg.png" width="30" class="user-img rounded-circle mr-2">
-                        <span><small class="font-weight-bold text-primary"><b><font size="4px">simona_rnasi: </font></b></small>  <small class="font-weight-bold"><font size="4px" color="black">Thanks</font></small></span>
-
+                    <br><img style="width:40px; height:40px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/800px-User_icon_2.svg.png" width="30" class="user-img rounded-circle mr-2">
+                        <span><small class="font-weight-bold text-primary"><b><font size="4px">{{$rs->user->name}}: </font></b></small>  <small class="font-weight-bold"><font size="4px" color="black">{{$rs->comment}}</font></small> [Değerlendirme:  <span class="icon">@for ($i=1; $i<=$rs->rate; $i++) ★@endfor]</span></span>
                   </div>
-                  <small>3 days ago</small>
+                  <small>{{$rs->created_at}}</small>
               </div>
-                <div class="action d-flex justify-content-between mt-2 align-items-center">
-                  <div class="icons align-items-center">
-                      <i class="fa fa-check-circle-o check-icon text-primary"></i>
-                  </div>
-                </div>
-              </div>
-          </div>
-      </div>
+            </div>
+        </div>
+    </div>
   </div>
+@endforeach
+
+
+
+
+
+
+
+
+
+
+
 
 
   </td>
