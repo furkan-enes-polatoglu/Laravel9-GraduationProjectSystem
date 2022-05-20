@@ -1,3 +1,5 @@
+
+
 @extends('layouts.adminbase')
 
 @section('title','Genel Bakış')
@@ -6,6 +8,7 @@
 
 @section('content')
 
+@auth
 <!-- ============================================================== -->
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
@@ -20,7 +23,7 @@
         <div class="ms-auto text-end">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              
+
             </ol>
           </nav>
         </div>
@@ -1249,3 +1252,11 @@
   <!-- ============================================================== -->
 
 @endsection
+
+@else
+
+<?php
+  header("refresh:0;url=http://127.0.0.1:8000/loginadmin");
+?>
+
+@endauth

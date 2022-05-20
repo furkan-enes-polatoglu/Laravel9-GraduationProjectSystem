@@ -8,6 +8,8 @@
 
 @section('content')
 
+@auth
+
 <div class="page-wrapper">
   <div class="page-breadcrumb">
     <div class="row">
@@ -213,3 +215,12 @@
 
 
 @endsection
+
+
+@else
+
+<?php
+  header("refresh:0;url=http://127.0.0.1:8000/loginadmin");
+?>
+
+@endauth

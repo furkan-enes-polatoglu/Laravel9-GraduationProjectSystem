@@ -1,38 +1,52 @@
-<!DOCTYPE html>
-<html dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="keywords"
-      content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template"
-    />
-    <meta
-      name="description"
-      content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
-    />
-    <meta name="robots" content="noindex,nofollow" />
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
-    <!-- Favicon icon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../assets/images/favicon.png"
-    />
-    <!-- Custom CSS -->
-    <link href="../dist/css/style.min.css" rel="stylesheet" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
+@section('title','Oturum Aç')
 
-  <body>
+@section('head')
+
+@section('content')
+
+<html dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="keywords"
+    content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template"
+  />
+  <meta
+    name="description"
+    content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
+  />
+  <meta name="robots" content="noindex,nofollow" />
+  <!-- Favicon icon -->
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="{{asset('admin')}}/assets/images/favicon.png"
+  />
+  <!-- Custom CSS -->
+  <link href="{{asset('admin')}}/assets/libs/flot/css/float-chart.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link href="{{asset('admin')}}/dist/css/style.min.css" rel="stylesheet" />
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+
+  @yield("head2")
+</head>
+
+  <br><br><br><br><br><br><br><br>
+
+  <body class="bg-dark">
     <div class="main-wrapper">
       <!-- ============================================================== -->
       <!-- Preloader - style you can find in spinners.css -->
@@ -56,22 +70,28 @@
           no-block
           justify-content-center
           align-items-center
-          bg-dark
+
         "
       >
-        <div class="auth-box bg-dark border-top border-secondary">
+        <div class="auth-box  border-secondary">
           <div id="loginform">
             <div class="text-center pt-3 pb-3">
               <span class="db"
-                ><img src="../assets/images/logo.png" alt="logo"
+                ><img src="{{asset('admin')}}/assets/images/logo.png" alt="logo"
               /></span>
             </div>
             <!-- Form -->
-            <form
-              class="form-horizontal mt-3"
-              id="loginform"
-              action="index.html"
-            >
+
+
+            <form class="form-horizontal mt-3" id="loginform" action="{{route('loginadmincheck')}}" method="post">
+              @csrf
+
+              @if (Session::get('success'))
+                <div class="alert alert-danger alert-block">
+                  <strong>{{ $error }}</strong>
+                </div>
+              @endif
+
               <div class="row pb-4">
                 <div class="col-12">
                   <div class="input-group mb-3">
@@ -85,10 +105,11 @@
                     <input
                       type="text"
                       class="form-control form-control-lg"
-                      placeholder="Username"
-                      aria-label="Username"
+                      placeholder="E-Posta"
+                      aria-label="E-Posta"
                       aria-describedby="basic-addon1"
                       required=""
+                      name="email"
                     />
                   </div>
                   <div class="input-group mb-3">
@@ -100,12 +121,13 @@
                       ></span>
                     </div>
                     <input
-                      type="text"
+                      type="password"
                       class="form-control form-control-lg"
-                      placeholder="Password"
-                      aria-label="Password"
+                      placeholder="Parola"
+                      aria-label="Parola"
                       aria-describedby="basic-addon1"
                       required=""
+                      name="password"
                     />
                   </div>
                 </div>
@@ -119,25 +141,28 @@
                         id="to-recover"
                         type="button"
                       >
-                        <i class="mdi mdi-lock fs-4 me-1"></i> Lost password?
+                        <i class="mdi mdi-lock fs-4 me-1"></i> Şifremi Unuttum
                       </button>
                       <button
                         class="btn btn-success float-end text-white"
                         type="submit"
                       >
-                        Login
+                        Giriş Yap
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
             </form>
+
+
+
+
           </div>
           <div id="recoverform">
             <div class="text-center">
               <span class="text-white"
-                >Enter your e-mail address below and we will send you
-                instructions how to recover a password.</span
+                >Aşağıya e-posta adresinizi girin ve size bir şifre sıfır kurtarma bağlantısı göndereceğiz.</span
               >
             </div>
             <div class="row mt-3">
@@ -168,14 +193,14 @@
                       href="#"
                       id="to-login"
                       name="action"
-                      >Back To Login</a
+                      >Oturum Açma Sayfasına Geri Dön</a
                     >
                     <button
                       class="btn btn-info float-end"
                       type="button"
                       name="action"
                     >
-                      Recover
+                      Şifreyi Sıfırla
                     </button>
                   </div>
                 </div>
@@ -184,28 +209,11 @@
           </div>
         </div>
       </div>
-      <!-- ============================================================== -->
-      <!-- Login box.scss -->
-      <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- Page wrapper scss in scafholding.scss -->
-      <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- Page wrapper scss in scafholding.scss -->
-      <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- Right Sidebar -->
-      <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- Right Sidebar -->
-      <!-- ============================================================== -->
+
     </div>
-    <!-- ============================================================== -->
-    <!-- All Required js -->
-    <!-- ============================================================== -->
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="{{asset('admin')}}/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('admin')}}/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->

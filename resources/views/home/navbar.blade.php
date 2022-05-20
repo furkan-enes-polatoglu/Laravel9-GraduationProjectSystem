@@ -34,8 +34,15 @@
                            <li><a href="{{route('faq')}}">SSS</a></li>
                            <li><a href="{{route('references')}}">Referanslar</a></li>
                            <li><a href="{{route('contact')}}">İletişim</a></li>
-                           <li><a href="/loginuser">Oturum Aç</a></li>
-                           <li><a href="{{route('registration')}}">Kayıt Ol</a></li>
+                           @auth
+                            <li><a href="/logoutuser">Çıkış Yap</a></li>
+                           @else
+                             <li><a href="/loginuser">Oturum Aç</a></li>
+                             <li><a href="/registeruser">Kayıt Ol</a></li>
+                           @endauth
+
+
+
                        </ul>
                    </div>
                    <!--/.nav-collapse -->

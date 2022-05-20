@@ -1,3 +1,4 @@
+@auth
 <html>
       <head>
           <title>@yield('title')</title>
@@ -37,6 +38,9 @@
                 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
               <![endif]-->
 
+
+
+
               @yield("head2")
             </head>
         @show
@@ -54,3 +58,5 @@
         @section('footer')
           @include('admin.footer')
         @show
+
+  @endauth

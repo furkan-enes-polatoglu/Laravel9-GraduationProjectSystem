@@ -1,3 +1,8 @@
+<head>
+    <title>Kayıt Ol</title>
+    <link rel="icon" type="image/x-icon" href="https://seeklogo.com/images/K/karabuk-universitesi-logo-DD8F91ACB1-seeklogo.com.png">
+</head>
+
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">

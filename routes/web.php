@@ -36,10 +36,14 @@ Route::get('/references',[HomeController::class, 'references'])->name('reference
 //Route::get('/login',[HomeController::class, 'login'])->name('login');
 Route::get('/project',[HomeController::class, 'project'])->name('project');
 Route::get('/projectdetail/{id}',[HomeController::class, 'projectdetail'])->name('projectdetail');
-Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
+//Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
 Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('storemessage');
 Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
 Route::view('/loginuser', 'auth.login');
+Route::view('/registeruser', 'auth.register');
+Route::get('/logoutuser', [HomeController::class, 'logout'])->name('logoutuser');
+Route::view('/loginadmin', 'admin.login');
+Route::post('/loginadmincheck', [HomeController::class, 'loginadmincheck'])->name('loginadmincheck');
 
 
 

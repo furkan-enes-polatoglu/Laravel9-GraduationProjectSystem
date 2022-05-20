@@ -6,7 +6,7 @@
 
 @section('content')
 
-
+@auth
 
 <br>
 
@@ -103,3 +103,13 @@
 
 
 @endsection
+
+
+
+@else
+
+<?php
+  header("refresh:0;url=http://127.0.0.1:8000/loginadmin");
+?>
+
+@endauth

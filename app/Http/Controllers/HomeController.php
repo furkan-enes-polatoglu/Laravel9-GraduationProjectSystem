@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Setting;
@@ -132,6 +133,39 @@ class HomeController extends Controller
     return view('home.references', [
       'setting'=>$setting
     ]);
+  }
+
+
+  public function logout(Request $request){
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/home');
+  }
+
+
+
+  public function loginadmincheck(Request $request)
+  {
+      $credentials = $request->validate([
+          'email' => ['required', 'email'],
+          'password' => ['required'],
+      ]);
+
+      if (Auth::attempt($credentials)) {
+          $request->session()->regenerate();
+          return redirect()->intended('/admin/dashboard');
+      }
+      else {
+        $error = "Kullanıcı adı veya şifre hatalı!";
+        return view('/loginadmin', [
+          'error'=>$error
+        ]);
+      }
+
+      return back()->withErrors([
+          'error' => 'The provided credentials do not match our records.',
+      ])->onlyInput('email');
   }
 
 
