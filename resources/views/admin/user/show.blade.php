@@ -1,11 +1,10 @@
 @extends('layouts.adminwindow')
 
-@section('title','Mesaj Detay')
+@section('title','Kullanıcı Detay')
 
 @section('head')
 
 @section('content')
-
 
 @auth
 
@@ -25,58 +24,53 @@
 
           <tbody>
             <tr>
-              <td><b>Yorum ID</b></td>
+              <td><b>Kullanıcı ID</b></td>
               <td>{{$data->id}}</td>
             </tr>
 
-            
-
             <tr>
               <td><b>Adı Soyadı</b></td>
-              <td>{{$data->user->name}}</td>
+              <td>{{$data->name}}</td>
             </tr>
             <tr>
-              <td><b>Yorum</b></td>
-              <td>{{$data->comment}}</td>
+              <td><b>E-Posta</b></td>
+              <td>{{$data->email}}</td>
             </tr>
             <tr>
-              <td><b>Değerlendirme</b></td>
-              <td>{{$data->rate}}</td>
+              <td><b>Rol</b></td>
+              <td>
+                @foreach($data->roles as $role)
+                  {{$role->name}}
+
+                  <a href="{{route('admin.user.destroyrole', ['uid'=>$data->id, 'rid'=>$role->id])}}"  class="btn btn-danger" onClick="return confirm('Silmek istediğine emin misin?')">[x]</a>
+
+                @endforeach
+              </td>
             </tr>
             <tr>
-              <td><b>IP</b></td>
-              <td>{{$data->IP}}</td>
+              <td><b>Oluşturulma Zamanı</b></td>
+              <td>{{$data->created_at}}</td>
             </tr>
             <tr>
-              <td><b>Durum</b></td>
-              <td>{{$data->status}}</td>
-            </tr>
-            <tr>
-              <td><b>Oluşturma Tarihi</b></td>
-              <td> {{$data->created_at}}</td>
-            </tr>
-            <tr>
-              <td><b>Güncelleme Tarihi</b></td>
+              <td><b>Güncelleme Zamanı</b></td>
               <td>{{$data->updated_at}}</td>
             </tr>
-
             <tr>
-              <td><b>Admin Notu</b></td>
+              <td><b>Rol Ekle</b></td>
               <td>
-                <form class="form-horizontal" action="{{route('admin.comment.update', ['id'=>$data->id])}}" method="post">
+                <form class="form-horizontal" action="{{route('admin.user.addrole', ['id'=>$data->id])}}" method="post">
                   @csrf
+                  <select name="role_id">
+                    @foreach($roles as $role)
+                      <option value="{{$role->id}}">{{$role->name}}</option>
+                    @endforeach
+                  </select name="role_id">
 
-                    <select name="status">
-                      <option selected>{{$data->status}}</option>
-                      <option>True</option>
-                      <option>False</option>
-                    </select>
-
-                    <br><br>
+                    <br>
 
                     <div class="table table-striped">
                       <button type="submit" id="guncelle" name="guncelle" type="button" class="btn btn-primary">
-                        Yorum Güncelle
+                        Rol Ekle
                       </button>
                     </div>
 
@@ -94,6 +88,8 @@
 
 
 @endsection
+
+
 
 @else
 
