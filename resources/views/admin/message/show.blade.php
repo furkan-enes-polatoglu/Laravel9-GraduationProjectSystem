@@ -8,6 +8,7 @@
 
 @auth
 
+
 <br>
 
 <div class="container-fluid">
@@ -103,8 +104,6 @@
 
 
 @endsection
-
-
 
 @else
 

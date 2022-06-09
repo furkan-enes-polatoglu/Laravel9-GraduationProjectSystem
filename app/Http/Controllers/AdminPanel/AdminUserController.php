@@ -106,7 +106,6 @@ class AdminUserController extends Controller
     {
         $user  = User::find($uid);
         $user->roles()->detach($rid); # Many to many relation delete related data
-        return redirect(route('admin.user.show', ['id'=>$uid]));
     }
 
     public function destroy($id)

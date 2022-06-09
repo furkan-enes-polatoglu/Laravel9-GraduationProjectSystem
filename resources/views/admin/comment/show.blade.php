@@ -6,7 +6,6 @@
 
 @section('content')
 
-
 @auth
 
 <br>
@@ -29,7 +28,7 @@
               <td>{{$data->id}}</td>
             </tr>
 
-            
+
 
             <tr>
               <td><b>Adı Soyadı</b></td>
@@ -91,7 +90,6 @@
 
 
 </div>
-
 
 @endsection
 

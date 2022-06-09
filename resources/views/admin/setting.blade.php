@@ -1,3 +1,5 @@
+@auth
+
 @extends('layouts.adminbase')
 
 @section('title','Ayarlar')
@@ -10,8 +12,6 @@
 
 @section('content')
 
-
-@auth
 
 <div class="page-wrapper">
   <div class="page-breadcrumb">
@@ -551,7 +551,6 @@
 
 
 @endsection
-
 
 @else
 

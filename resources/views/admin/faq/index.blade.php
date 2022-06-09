@@ -8,6 +8,7 @@
 
 @auth
 
+
 <div class="page-wrapper">
   <div class="page-breadcrumb">
     <div class="row">
@@ -75,7 +76,6 @@
 
 
 @endsection
-
 
 @else
 

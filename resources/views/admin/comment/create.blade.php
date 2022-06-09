@@ -195,8 +195,6 @@
         </div>
 
 
-
-
       <div class="border-top">
         <div class="card-body">
           <button type="submit" id="ekle" name="ekle" type="button" class="btn btn-primary">
@@ -210,12 +208,9 @@
 </div>
 </div>
 
-
 </div>
 
-
 @endsection
-
 
 @else
 

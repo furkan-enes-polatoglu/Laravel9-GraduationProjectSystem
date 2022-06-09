@@ -43,8 +43,6 @@
           id="zero_config"
           class="table table-striped"
         >
-
-
           <tbody>
             <tr>
               <td><b>ID</b></td>
@@ -85,13 +83,8 @@
       </div>
     </div>
   </div>
-
-
 </div>
-
-
 @endsection
-
 
 @else
 

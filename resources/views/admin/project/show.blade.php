@@ -6,7 +6,6 @@
 
 @section('content')
 
-
 @auth
 
 <div class="page-wrapper">
@@ -106,7 +105,6 @@
 
 
 @endsection
-
 
 @else
 
