@@ -60,7 +60,12 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function reviews(){
+    public function comment(){
       return $this->hasMany(Comment::class);
+    }
+
+    public function roles()
+    {
+      return $this->belongsToMany(Role::class, 'role_users');
     }
 }
