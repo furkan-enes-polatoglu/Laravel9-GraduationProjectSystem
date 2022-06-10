@@ -40,16 +40,19 @@ Route::get('/projectdetail/{id}',[HomeController::class, 'projectdetail'])->name
 //Route::get('/registration',[HomeController::class, 'registration'])->name('registration');
 Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('storemessage');
 Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
-Route::view('/loginuser', 'auth.login');
-Route::view('/registeruser', 'auth.register');
+Route::view('/loginuser', 'auth.login')->name('loginuser');
+Route::view('/registeruser', 'auth.register')->name('registeruser');
 Route::get('/logoutuser', [HomeController::class, 'logout'])->name('logoutuser');
-Route::view('/loginadmin', 'admin.login');
+Route::view('/loginadmin', 'admin.login')->name('loginadmin');
 Route::post('/loginadmincheck', [HomeController::class, 'loginadmincheck'])->name('loginadmincheck');
 
 
 
+// ********************************** USER AUTH CONTROL *******************************************
+Route::middleware('auth')->group(function() {
+
 // ********************************** ADMIN PANEL ROUTING *******************************************
-Route::prefix('admin')->name('admin.')->group(function() {
+Route::middleware('admin')->prefix('admin')->name('admin.')->group(function() {
     Route::get('/dashboard',[AdminHomeController::class, 'dashboard'])->name('adminDashboard');
 
     // ******************************** GENERAL ROUTES *******************************************
@@ -132,6 +135,8 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
 
     });
+
+  });
 
 });
 

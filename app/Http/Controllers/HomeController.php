@@ -158,9 +158,7 @@ class HomeController extends Controller
       }
       else {
         $error = "Kullanıcı adı veya şifre hatalı!";
-        return view('/loginadmin', [
-          'error'=>$error
-        ]);
+        return redirect()->intended('/loginadmin');
       }
 
       return back()->withErrors([
