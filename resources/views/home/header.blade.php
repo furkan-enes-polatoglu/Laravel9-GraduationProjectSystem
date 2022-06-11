@@ -12,7 +12,13 @@
                 </div>
                 <div class="col-md-5 col-sm-5 col-xs-5 social">
                     <ul class="social_links">
-                      @auth <li><a href="http://127.0.0.1:8000/user/profile"><font color="white"><u><b>{{Auth::user()->name}}</b></u> &nbsp; &nbsp;</font></a></li> @endauth
+                      @auth
+
+                      <li><a href="{{route('userpanel.index')}}"><font color="white"><u><b>{{Auth::user()->name}}</b></u>&nbsp; | &nbsp;</font></a></li>
+                      <li><a href="{{route('userpanel.reviews')}}"><font color="white"><u><b>Yorumlarım</b></u> &nbsp; | &nbsp;</font></a></li>
+                      <li><a href="{{route('userpanel.uploadproject')}}"><font color="white"><u><b>Proje Yükle</b></u> &nbsp; &nbsp;</font></a></li>
+
+                      @endauth
                         <li><a href="{{$setting->twitter}}"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="{{$setting->linkedin}}"><i class="fa fa-linkedin"></i></a></li>
 

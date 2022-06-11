@@ -17,6 +17,10 @@ class Project extends Model
     }
 
     public function comment(){
-      return $this->hasMany(Comment::class);
+      return $this->hasMany(Comment::class,'project_id');
     }
+
+
+
+
 }

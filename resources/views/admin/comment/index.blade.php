@@ -36,6 +36,7 @@
         <thead>
           <tr>
             <th scope="col"><b>#</b></th>
+            <th scope="col"><b>Proje Adı</b></th>
             <th scope="col"><b>Ad Soyad</b></th>
             <th scope="col"><b>Yorum</b></th>
             <th scope="col"><b>Değerlendirme</b></th>
@@ -49,8 +50,12 @@
         @foreach($data as $rs)
           <tr>
             <td>{{$rs->id}}</td>
-            <td>{{$rs->user->name}}</td>
+            <td>
+              <a href="{{route('projectdetail',['id'=>$rs->project_id])}}">
+                {{$rs->project->title}}
+              </a>
             </td>
+            <td>{{$rs->user->name}}</td>
             <td>{{$rs->comment}}</td>
             <td>{{$rs->rate}}</td>
             <td>{{$rs->status}}</td>

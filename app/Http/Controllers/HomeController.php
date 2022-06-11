@@ -30,7 +30,8 @@ class HomeController extends Controller
 
 
   public function project() {
-    $projectlist1=Project::limit(50)->get();
+    //$projectlist1=Project::limit(50)->get();
+    $projectlist1 = Project::where('status','True')->get();
     $setting = Setting::first();
     return view('home.project',[
       'projectlist1'=>$projectlist1,

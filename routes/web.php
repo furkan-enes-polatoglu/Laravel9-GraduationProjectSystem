@@ -10,7 +10,7 @@ use App\Http\Controllers\AdminPanel\MessageController as AdminMessageController;
 use App\Http\Controllers\AdminPanel\FaqController as AdminFaqController;
 use App\Http\Controllers\AdminPanel\CommentController as AdminCommentController;
 use App\Http\Controllers\AdminPanel\AdminUserController as AdminUserController;
-
+use App\Http\Controllers\UserController as UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +50,19 @@ Route::post('/loginadmincheck', [HomeController::class, 'loginadmincheck'])->nam
 
 // ********************************** USER AUTH CONTROL *******************************************
 Route::middleware('auth')->group(function() {
+// ************************************* USER ROUTES ************************************************
+  Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function() {
+      Route::get('/', 'index')->name('index');
+      Route::get('/reviews', 'reviews')->name('reviews');
+      Route::get('/reviewdelete/{id}', 'reviewdelete')->name('reviewdelete');
+      Route::get('/uploadproject', 'uploadproject')->name('uploadproject');
+      Route::get('/createproject', 'createproject')->name('createproject');
+      Route::post('/storeproject', 'storeproject')->name('storeproject');
+      Route::get('/detailproject', 'detailproject')->name('detailproject');
+      Route::get('/deleteproject/{id}', 'deleteproject')->name('deleteproject');
+      Route::get('/showproject/{id}', 'showproject')->name('showproject');
+
+  });
 
 // ********************************** ADMIN PANEL ROUTING *******************************************
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function() {

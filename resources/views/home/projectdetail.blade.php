@@ -192,7 +192,7 @@
 
 
 <br><br>
-<h4><b>Tüm Yorumlar ({{$data->comment->count('id')}})</b></h4>
+<h4><b>Tüm Yorumlar</b></h4>
 
 @foreach($reviews as $rs)
 

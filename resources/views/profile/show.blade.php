@@ -1,13 +1,9 @@
 <head>
     <title>Kullanıcı Profili</title>
-    <link rel="icon" type="image/x-icon" href="https://seeklogo.com/images/K/karabuk-universitesi-logo-DD8F91ACB1-seeklogo.com.png">
+    <link rel="icon" type="image/x-icon" href="https://www.karabuk.edu.tr/wp-content/uploads/2018/03/baykus.png">
 </head>
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profil') }}
-        </h2>
-    </x-slot>
+
 
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
