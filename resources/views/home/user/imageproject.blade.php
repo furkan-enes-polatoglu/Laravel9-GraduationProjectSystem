@@ -35,7 +35,7 @@
 
                         <h3>{{$project->title}} Projesi Resim Galerisi</h3><br><br>
 
-                          <form class="form-horizontal" action="{{route('admin.image.store',['pid'=>$project->id])}}" method="post" enctype="multipart/form-data">
+                          <form class="form-horizontal" action="{{route('userpanel.store2',['pid'=>$project->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <table>
@@ -101,7 +101,7 @@
                                       @endif
                                     </td>
                                     <td>
-                                        <a href="{{route('admin.image.destory', ['pid'=>$project->id, 'id'=>$rs->id])}}"  class="btn btn-danger" onClick="return confirm('Silmek istediğine emin misin?')">&nbsp;&nbsp;&nbsp;Sil&nbsp;&nbsp;&nbsp;</a>
+                                        <a href="{{route('userpanel.destory2', ['pid'=>$project->id, 'id'=>$rs->id])}}"  class="btn btn-danger" onClick="return confirm('Silmek istediğine emin misin?')">&nbsp;&nbsp;&nbsp;Sil&nbsp;&nbsp;&nbsp;</a>
                                     </td>
 
                                   </tr>

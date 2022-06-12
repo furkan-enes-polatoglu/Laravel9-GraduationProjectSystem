@@ -40,6 +40,20 @@ class HomeController extends Controller
   }
 
 
+  public function search(Request $req) {
+
+     $setting = Setting::first();
+     $searchlist = Project::where('title','like','%'.$req->input('query').'%')->get();
+     return view('home.search',['searchlist'=>$searchlist, 'setting'=>$setting]);
+
+    /*//$projectlist1=Project::limit(50)->get();
+    $projectlist1 = Project::where('status','True')->get();
+    return view('home.project',[
+      'projectlist1'=>$projectlist1
+    ]);*/
+  }
+
+
   public function projectdetail($id) {
     $data = Project::find($id);
     $setting = Setting::first();

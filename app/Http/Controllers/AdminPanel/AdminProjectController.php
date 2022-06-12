@@ -49,7 +49,7 @@ class AdminProjectController extends Controller
     {
         $data = new Project();
         $data->category_id = $request->category_id;
-        $data->user_id = Auth::id();;
+        $data->user_id = Auth::id();
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
@@ -104,7 +104,7 @@ class AdminProjectController extends Controller
     {
       $data  = Project::find($id);
       $data->category_id = $request->category_id;
-      $data->user_id = 0; //$request->category_id;
+      //$data->user_id = Auth::id();
       $data->title = $request->title;
       $data->keywords = $request->keywords;
       $data->description = $request->description;

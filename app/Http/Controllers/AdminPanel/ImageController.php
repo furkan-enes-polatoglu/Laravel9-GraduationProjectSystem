@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Image;
 use App\Models\Project;
+use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -96,6 +97,48 @@ class ImageController extends Controller
         }
         $data->delete();
         return redirect()->route('admin.image.index', ['pid'=>$pid]);
+
+    }
+
+
+
+
+    public function index2($pid)
+    {
+        $setting = Setting::first();
+        $project = Project::find($pid);
+        $images = DB::table('images')->where('project_id',$pid)->get();
+        return view('home.user.imageproject',[
+          'project' => $project,
+          'images' => $images,
+          'setting' => $setting
+
+        ]);
+    }
+
+
+    public function store2(Request $request, $pid)
+    {
+      $data = new Image();
+      $data->project_id = $pid;
+      $data->title = $request->baslik;
+      if($request->file('image')){
+        $data->image = $request->file('image')->store('images');
+      }
+      $data->save();
+      return redirect()->route('userpanel.index2', ['pid'=>$pid]);
+    }
+
+
+    public function destroy2($pid, $id)
+    {
+        //
+        $data  = Image::find($id);
+        if ($data->image && Storage::disk('public')->exists($data->image)){
+          Storage::delete($data->image);
+        }
+        $data->delete();
+        return redirect()->route('userpanel.index2', ['pid'=>$pid]);
 
     }
 }

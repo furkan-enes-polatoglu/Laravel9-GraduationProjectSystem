@@ -176,44 +176,7 @@ class UserController extends Controller
     }
 
 
-    public function index2($pid)
-    {
-        $setting = Setting::first();
-        $project = Project::find($pid);
-        $images = DB::table('images')->where('project_id',$pid)->get();
-        return view('home.user.imageproject',[
-          'project' => $project,
-          'images' => $images,
-          'setting' => $setting
 
-        ]);
-    }
-
-
-    public function store2(Request $request, $pid)
-    {
-      $data = new Image();
-      $data->project_id = $pid;
-      $data->title = $request->baslik;
-      if($request->file('image')){
-        $data->image = $request->file('image')->store('images');
-      }
-      $data->save();
-      return redirect()->route('admin.image.index', ['pid'=>$pid]);
-    }
-
-
-    public function destroy2($pid, $id)
-    {
-        //
-        $data  = Image::find($id);
-        if ($data->image && Storage::disk('public')->exists($data->image)){
-          Storage::delete($data->image);
-        }
-        $data->delete();
-        return redirect()->route('admin.image.index', ['pid'=>$pid]);
-
-    }
 
 
 }

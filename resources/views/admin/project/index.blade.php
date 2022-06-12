@@ -23,7 +23,7 @@
       </div>
     </div>
     <br>
-    <a href="{{route('admin.project.create')}}" class="btn btn-primary">Proje Ekle</a>
+    <!--<a href="{{route('admin.project.create')}}" class="btn btn-primary">Proje Ekle</a>-->
 
   </div>
 

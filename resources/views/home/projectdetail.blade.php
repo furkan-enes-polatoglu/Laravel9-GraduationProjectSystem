@@ -207,7 +207,7 @@
               <div class="d-flex justify-content-between align-items-center">
                   <div class="user d-flex flex-row align-items-center">
                     <br><img style="width:40px; height:40px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/800px-User_icon_2.svg.png" width="30" class="user-img rounded-circle mr-2">
-                        <span><small class="font-weight-bold text-primary"><b><font size="4px">{{$rs->user->name}}: </font></b></small>  <small class="font-weight-bold"><font size="4px" color="black">{{$rs->comment}}</font></small> [Değerlendirme:  <span class="icon">@for ($i=1; $i<=$rs->rate; $i++) ★@endfor]</span></span>
+                        <span><small class="font-weight-bold text-primary"><b><font size="4px">{{$rs->user->name}}: </font></b></small>  <small class="font-weight-bold"><font size="4px" color="black">{{$rs->comment}}</font></small> <br><br>[Değerlendirme:  <span class="icon">@for ($i=1; $i<=$rs->rate; $i++) ★@endfor]</span></span>
                   </div>
                   <small>{{$rs->created_at}}</small>
               </div>
@@ -215,6 +215,7 @@
         </div>
     </div>
   </div>
+  <hr>
 @endforeach
 
 

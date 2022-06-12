@@ -37,24 +37,20 @@
     </section>
 
 
-
     <section id="portfolio">
         <div class="container">
 <br>
 
-
-
             <div class="row">
 
-
-              <form id="main-contact-form" class="contact-form" name="contact-form" action="/search">
+              <form id="main-contact-form" class="contact-form" name="contact-form" action="{{route('search')}}">
                 @csrf
                         <center>
                           <table>
                             <tr>
                               <td><b><font size="5">Proje Ara:</font></b></td>
                               <td>&nbsp;  &nbsp;<input type="text" name="query" required="required" size="70" placeholder="Aramak istediğiniz projeyi yazınız..."></td>
-                              <td> &nbsp; <button type="submit" class="btn btn-dark">Ara <i class="fa fa-search"></i></button></td>
+                              <td> &nbsp; <button type="submit" name="search" class="btn btn-dark">Ara <i class="fa fa-search"></i></button></td>
                             </tr>
                           </table>
 
@@ -63,11 +59,9 @@
                         </center>
                           <br><br>
               </form>
-
-
 <br>
 
-              @foreach($projectlist1 as $rs)
+              @foreach($searchlist as $rs)
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
                     <div class="portfolio-one">
                         <div class="portfolio-head">

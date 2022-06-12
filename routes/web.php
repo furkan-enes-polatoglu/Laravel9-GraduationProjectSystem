@@ -28,6 +28,7 @@ Route::get('/index2',[HomeController::class, 'index2'])->name('index2');
 
 
 // *********************************** WEB PANEL ROUTING  ******************************************
+Route::get('search',[HomeController::class, 'search'])->name('search');
 Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::get('/about',[HomeController::class, 'about'])->name('aboutus');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
@@ -61,6 +62,10 @@ Route::middleware('auth')->group(function() {
       Route::get('/detailproject', 'detailproject')->name('detailproject');
       Route::get('/deleteproject/{id}', 'deleteproject')->name('deleteproject');
       Route::get('/showproject/{id}', 'showproject')->name('showproject');
+});
+
+    Route::prefix('userpanel')->name('userpanel.')->controller(AdminImageController::class)->group(function() {
+
       Route::get('/imageproject/{pid}', 'index2')->name('index2');
       Route::post('/imageproject/store/{pid}', 'store2')->name('store2');
       Route::get('/imageproject/delete/{pid}/{id}', 'destroy2')->name('destory2');
