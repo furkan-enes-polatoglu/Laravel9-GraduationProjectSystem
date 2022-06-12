@@ -82,6 +82,10 @@
     <td>{{$data->title}}</td>
   </tr>
   <tr>
+    <td style="width:250px"><b>Proje Sahibi<b/></td>
+    <td>{{$data->user->name}}</td>
+  </tr>
+  <tr>
     <td><b>Anahtar Kelimeler</b></td>
     <td>{{$data->keywords}}</td>
   </tr>

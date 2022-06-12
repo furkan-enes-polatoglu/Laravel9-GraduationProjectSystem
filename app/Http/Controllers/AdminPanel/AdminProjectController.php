@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class AdminProjectController extends Controller
 {
@@ -48,7 +49,7 @@ class AdminProjectController extends Controller
     {
         $data = new Project();
         $data->category_id = $request->category_id;
-        $data->user_id = 0;
+        $data->user_id = Auth::id();;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
