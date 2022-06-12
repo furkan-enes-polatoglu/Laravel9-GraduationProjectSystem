@@ -55,20 +55,21 @@
            <div class="text-block">
                <div class="section-heading">
                    <h1>HAKKIMIZDA</h1>
-                   <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut.</p>
+                   <p class="subheading">Karabük Üniversitesi ya da kısaca KBÜ, 2007 yılında kurulmuş bir devlet üniversitesidir.</p>
                </div>
 
                <ul class="aboutul">
-                   <li> <i class="fa fa-check"></i>Vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</li>
-                   <li> <i class="fa fa-check"></i>legimus copiosae instructior ei ut vix denique fierentis atqui mucius consequat ad pro.</li>
-                   <li> <i class="fa fa-check"></i>Ea saperet inimicu ut qui dolor oratio maiestatis ubique mnesarchum.</li>
-                   <li> <i class="fa fa-check"></i>Sanctus voluptatibus et per illum noluisse facilisis quo atqui mucius ad pro.</li>
-                   <li> <i class="fa fa-check"></i>At illum noluisse facilisis quo te dictas epicurei suavitate qui his ad.</li>
-                   <li> <i class="fa fa-check"></i>Tantas propriae mediocritatem id vix qui everti efficiantur an ocurreret consetetur.</li>
+                   <li> <i class="fa fa-check"></i>Bulunduğu il olan Karabük'ün ismini taşımaktadır.</li>
+                   <li> <i class="fa fa-check"></i>2014-2015 Eğitim-Öğretim döneminden itibaren bünyesindeki 14 fakülte, 7 meslek yüksek okulu, 4 yüksek okul ve 4 enstitü ile akademik etkinliklerini sürdürmektedir.</li>
+                   <li> <i class="fa fa-check"></i>Rektörlüğünü Refik Polat, Rektör Yardımcılıklarını Ali Güneş ve İbrahim Kadı yapmaktadır. </li>
+                   <li> <i class="fa fa-check"></i>Kapalı Spor Salonunun yanı sıra, kampüs içerisinde bir adet basketbol sahası, bir adet tenis kortu ve bir adet voleybol sahası bulunmaktadır.</li>
+                   <li> <i class="fa fa-check"></i>Üniversite bünyesindeki pek çok öğrenci kulübü veya topluluğu yıl boyunca çeşitli etkinlikler düzenlemektedir.</li>
+                   <li> <i class="fa fa-check"></i>25.000 kişilik stadyum ve camii inşaatı 2013 yılında tamamlanmıştır.</li>
                </ul>
 
-               <button type="button" class="btn btn-primary slide">Learn More  <i class="fa fa-caret-right"></i> </button>
-
+              <form method="get" action="{{route('aboutus')}}">
+               <button type="submit" class="btn btn-primary slide">Daha fazla  <i class="fa fa-caret-right"></i> </button>
+             </form>
 
            </div>
        </div>
@@ -81,7 +82,7 @@
        <div class="section-heading text-center">
            <div class="col-md-12 col-xs-12">
                <h1><span>Biz</span> Ne Yapıyoruz</h1>
-               <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset nam nostrud euismod volumus ne mei.</p>
+               <p class="subheading">Ülkemizdeki bütün üniversiteli gençlerin bitirme projelerini, oluşturmuş olduğumuz bu platform aracılığıyla akademik camiayla paylaşmasını ve projeler hakkında geridönüşler almalarını sağlayarak diğer üniversite öğrencilerininde yaratıcı fikirler üretmesini sağlıyoruz.</p>
            </div>
        </div>
 
@@ -94,8 +95,8 @@
                </div>
 
                <div class="process-text-block">
-                   <h4><a href="#">Idea</a></h4>
-                   <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
+                   <h4><a href="#">Fikir</a></h4>
+                   <p>Her gün yeni bir fikirle platformumuzu en iyi duruma getirmeye çalışıyoruz!</p>
                </div>
            </div>
            <div class="col-md-3 col-sm-6 block process-block">
@@ -106,8 +107,8 @@
                </div>
 
                <div class="process-text-block">
-                   <h4><a href="#">Concept</a></h4>
-                   <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
+                   <h4><a href="#">Konsept</a></h4>
+                   <p>Üniversite öğrencilerinin düşünce anlayışıyla yola çıkarak her zaman daha faydalı olmaya çalışıyoruz!</p>
                </div>
            </div>
            <div class="col-md-3 col-sm-6 block process-block">
@@ -118,8 +119,8 @@
                </div>
 
                <div class="process-text-block">
-                   <h4><a href="#">Design</a></h4>
-                   <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
+                   <h4><a href="#">Tasarım</a></h4>
+                   <p>Sade ve modern tasarımlarla kullanım kolaylığı yaratmank için elimizden geleni yapıyoruz!</p>
                </div>
            </div>
            <div class="col-md-3 col-sm-6 block process-block lastchild">
@@ -130,8 +131,8 @@
                </div>
 
                <div class="process-text-block">
-                   <h4><a href="#">Develop</a></h4>
-                   <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
+                   <h4><a href="#">Geliştirme</a></h4>
+                   <p>Sistemlerimizde en iyi optimizasyonu yakalamak adına profesyonel yazılım geliştirme ekipleriyle çalışıyoruz!</p>
                </div>
            </div>
        </div>
@@ -144,22 +145,66 @@
    <div class="container">
        <div class="section-heading text-center">
            <div class="col-md-12 col-xs-12">
-               <h1>What Our <span>Client Says</span></h1>
-               <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset nam nostrud euismod volumus ne mei.</p>
+               <br><br><h1><span>Kullanıcılarımız </span>Neler söylüyor?</h1><br>
+               <p class="subheading">Farklı üniversitelerdeki akademik kadrolarda yer alan öğretim üyelerimize sizler için sorduk...</p>
            </div>
        </div>
 
        <div class="row">
            <div class="col-md-4 col-sm-12 block ">
                <div class="testimonial_box">
+                   <p>Ülkemizde ilk olan Bitirme Projeleri Sistemi'nin bütün akademik camiayı içerisinde barındırabilme özelliğine sahip olması gerçekten harika. </p>
+               </div>
+               <div class="arrow-down"></div>
+               <div class="testimonial_user">
+                   <div class="user-image"><img src="{{asset('assets')}}/img/user1.jpg" alt="user" class="img-responsive" style="height:80px; weight:150px;" /></div>
+                   <div class="user-info">
+                       <h5>Asst. Prof. Dr. Yüksel Çelik</h5>
+                       <p>Karabük Üniversitesi</p>
+                   </div>
+               </div>
+           </div>
+
+
+           <div class="col-md-4 col-sm-12 block">
+               <div class="testimonial_box">
+                   <p>Henüz yeni kurulmuş olan bu platformun çok daha geniş kitlelere yayılacağına inanıyorum. Bütün öğrencilerimize faydalı olmasını umuyorum.</p>
+               </div>
+               <div class="arrow-down"></div>
+               <div class="testimonial_user">
+                   <div class="user-image"><img src="{{asset('assets')}}/img/user2.jpg" alt="user" class="img-responsive" style="height:80px; weight:150px;" /></div>
+                   <div class="user-info">
+                       <h5>Doç. Dr. İlhami M. ORAK</h5>
+                       <p>Karabük Üniversitesi</p>
+                   </div>
+               </div>
+           </div>
+
+           <div class="col-md-4 col-sm-12 block">
+               <div class="testimonial_box">
+                   <p>Bitirme Projeleri Sistemi'nin ülkemizdeki bütün üniversiteli arkadaşlarımıza kendi projelerinde ilham kaynağı olacağı kaçınılmaz bir gerçek.</p>
+               </div>
+               <div class="arrow-down"></div>
+               <div class="testimonial_user">
+                   <div class="user-image"><img src="{{asset('assets')}}/img/user3.jpg" alt="user" class="img-responsive" style="height:80px; weight:150px;"/></div>
+                   <div class="user-info">
+                       <h5>Dr. Öğr. Üyesi Emrah Özkaynak</h5>
+                       <p>Karabük Üniversitesi</p>
+                   </div>
+               </div>
+           </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+           <div class="col-md-4 col-sm-12 block">
+               <div class="testimonial_box">
                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset. </p>
                </div>
                <div class="arrow-down"></div>
                <div class="testimonial_user">
-                   <div class="user-image"><img src="{{asset('assets')}}/img/user1.png" alt="user" class="img-responsive" /></div>
+                   <div class="user-image"><img src="{{asset('assets')}}/img/user4.png" alt="user" class="img-responsive" style="height:80px; weight:150px;"/></div>
                    <div class="user-info">
-                       <h5>Lorem Ipsum</h5>
-                       <p>Manager</p>
+                       <h5>Dr. Sadi Evren Şeker</h5>
+                       <p>Antalya Bilim Üniversitesi</p>
                    </div>
                </div>
            </div>
@@ -171,13 +216,14 @@
                </div>
                <div class="arrow-down"></div>
                <div class="testimonial_user">
-                   <div class="user-image"><img src="{{asset('assets')}}/img/user1.png" alt="user" class="img-responsive" /></div>
+                   <div class="user-image"><img src="{{asset('assets')}}/img/user5.jpg" alt="user" class="img-responsive" style="height:80px; weight:150px;" /></div>
                    <div class="user-info">
-                       <h5>Lorem Ipsum</h5>
-                       <p>Manager</p>
+                       <h5>Prof. Dr. Ali Saatçi</h5>
+                       <p>Hacettepe Üniversitesi</p>
                    </div>
                </div>
            </div>
+
 
            <div class="col-md-4 col-sm-12 block">
                <div class="testimonial_box">
@@ -185,10 +231,10 @@
                </div>
                <div class="arrow-down"></div>
                <div class="testimonial_user">
-                   <div class="user-image"><img src="{{asset('assets')}}/img/user1.png" alt="user" class="img-responsive" /></div>
+                   <div class="user-image"><img src="{{asset('assets')}}/img/user6.png" alt="user" class="img-responsive" style="height:80px; weight:150px;" /></div>
                    <div class="user-info">
-                       <h5>Lorem Ipsum</h5>
-                       <p>Manager</p>
+                       <h5>Prof. Dr. Hilmi KUŞÇU</h5>
+                       <p>Trakya Üniversitesi</p>
                    </div>
                </div>
            </div>

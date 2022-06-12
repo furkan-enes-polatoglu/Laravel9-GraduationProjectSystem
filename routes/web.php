@@ -61,6 +61,9 @@ Route::middleware('auth')->group(function() {
       Route::get('/detailproject', 'detailproject')->name('detailproject');
       Route::get('/deleteproject/{id}', 'deleteproject')->name('deleteproject');
       Route::get('/showproject/{id}', 'showproject')->name('showproject');
+      Route::get('/imageproject/{pid}', 'index2')->name('index2');
+      Route::post('/imageproject/store/{pid}', 'store2')->name('store2');
+      Route::get('/imageproject/delete/{pid}/{id}', 'destroy2')->name('destory2');
 
   });
 
@@ -71,6 +74,9 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function() {
     // ******************************** GENERAL ROUTES *******************************************
         Route::get('/setting',[AdminHomeController::class, 'setting'])->name('setting');
         Route::post('/setting/update',[AdminHomeController::class, 'settingUpdate'])->name('setting.update');
+        Route::get('/profile',[AdminHomeController::class, 'profile'])->name('profile');
+        Route::get('/logoutadmin', [AdminHomeController::class, 'logoutadmin'])->name('logoutadmin');
+
 
     // ******************************** ADMIN CATEGORY ROUTES *******************************************
     Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function() {

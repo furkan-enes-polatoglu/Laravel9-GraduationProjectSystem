@@ -8,6 +8,9 @@ use App\Models\Comment;
 use App\Models\Project;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Image;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -78,10 +81,16 @@ class UserController extends Controller
           $data->image = $request->file('image')->store('images');
         }
         $data->save();
-        return view('home.user.uploadproject',[
+
+        //header("Location:http://127.0.0.1:8000/userpanel/uploadproject");
+        /*return view('home.user.uploadproject',[
           'setting'=>$setting,
           'project'=>$project
-        ]);
+        ]);*/
+
+        return redirect('userpanel/uploadproject');
+
+
     }
 
 
@@ -121,6 +130,7 @@ class UserController extends Controller
          'data' => $data,
          'setting'=>$setting
        ]);
+
      }
 
     /**
@@ -164,4 +174,46 @@ class UserController extends Controller
         return redirect(route('userpanel.reviews'));
 
     }
+
+
+    public function index2($pid)
+    {
+        $setting = Setting::first();
+        $project = Project::find($pid);
+        $images = DB::table('images')->where('project_id',$pid)->get();
+        return view('home.user.imageproject',[
+          'project' => $project,
+          'images' => $images,
+          'setting' => $setting
+
+        ]);
+    }
+
+
+    public function store2(Request $request, $pid)
+    {
+      $data = new Image();
+      $data->project_id = $pid;
+      $data->title = $request->baslik;
+      if($request->file('image')){
+        $data->image = $request->file('image')->store('images');
+      }
+      $data->save();
+      return redirect()->route('admin.image.index', ['pid'=>$pid]);
+    }
+
+
+    public function destroy2($pid, $id)
+    {
+        //
+        $data  = Image::find($id);
+        if ($data->image && Storage::disk('public')->exists($data->image)){
+          Storage::delete($data->image);
+        }
+        $data->delete();
+        return redirect()->route('admin.image.index', ['pid'=>$pid]);
+
+    }
+
+
 }

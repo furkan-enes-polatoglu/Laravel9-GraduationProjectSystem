@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -127,10 +128,12 @@ class AdminProjectController extends Controller
     public function destroy(Project $project, $id)
     {
         $data  = Project::find($id);
+        $comment = Comment::where('project_id',$id);
         if ($data->image && Storage::disk('public')->exists($data->image)){
           Storage::delete($data->image);
         }
         $data->delete();
+        $comment->delete();
         return redirect('admin/project');
 
     }

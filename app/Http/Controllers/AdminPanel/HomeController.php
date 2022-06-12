@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminPanel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Setting;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -12,6 +13,20 @@ class HomeController extends Controller
     public function category() { return view('/admin/category'); }
 
 
+    public function logoutadmin(Request $request){
+      Auth::logout();
+      $request->session()->invalidate();
+      $request->session()->regenerateToken();
+      return redirect('/loginadmin');
+    }
+
+
+    public function profile(){
+      $data = Setting::first();
+      return view('admin.profile',[
+        'data'=>$data
+      ]);
+    }
 
     public function setting(){
 

@@ -38,7 +38,6 @@
             <th scope="col"><b>#</b></th>
             <th scope="col"><b>Kategori</b></th>
             <th scope="col"><b>Başlık</b></th>
-            <th scope="col"><b>Detay</b></th>
             <th scope="col"><b>Videlink</b></th>
             <th scope="col"><b>Resim</b></th>
             <th scope="col"><b>Resim Galerisi</b></th>
@@ -55,7 +54,6 @@
             <td>{{$rs->id}}</td>
             <td>{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category, $rs->category->title) }}</td>
             <td>{{$rs->title}}</td>
-            <td>{!! $rs->detail !!}</td>
             <td>{{$rs->videlink}}</td>
             <td>
               @if ($rs->image)

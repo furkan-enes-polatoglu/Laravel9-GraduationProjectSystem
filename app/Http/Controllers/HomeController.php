@@ -20,7 +20,7 @@ class HomeController extends Controller
 
 
   public function index() {
-    $sliderdata=Project::limit(50)->get();
+    $sliderdata=Project::where('status','True')->get();
     $setting = Setting::first();
     return view('home.index',[
       'sliderdata'=>$sliderdata,

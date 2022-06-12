@@ -79,7 +79,7 @@
     </head>
     <body>
 
-    <p>Click on the buttons inside the tabbed menu:</p>
+    <p><a href="http://127.0.0.1:8000/home" target="_blank">Siteye git</a></p>
 
     <div class="tab">
       <button class="tablinks" onclick="openCity(event, 'Genel')">Genel</button>
@@ -347,7 +347,7 @@
     ><br>
     <div class="col-sm-9">
       <input
-        type="text"
+        type="password"
         class="form-control"
         id="smtppassword"
         name="smtppassword"
