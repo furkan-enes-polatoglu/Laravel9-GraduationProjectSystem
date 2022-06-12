@@ -36,6 +36,7 @@
         <thead>
           <tr>
             <th scope="col"><b>#</b></th>
+            <th scope="col"><b>Ad Soyad</b></th>
             <th scope="col"><b>Kategori</b></th>
             <th scope="col"><b>Başlık</b></th>
             <th scope="col"><b>Videlink</b></th>
@@ -52,6 +53,7 @@
         @foreach($data as $rs)
           <tr>
             <td>{{$rs->id}}</td>
+            <td>{{$rs->user->name}}</td>
             <td>{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category, $rs->category->title) }}</td>
             <td>{{$rs->title}}</td>
             <td>{{$rs->videlink}}</td>
