@@ -10,15 +10,6 @@
           <nav class="sidebar-nav">
             <ul id="sidebarnav" class="pt-4">
 
-              <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="{{route('admin.adminDashboard')}}"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-eye-outline"></i
-                  ><span class="hide-menu">Genel Bakış</span></a
-                >
-              </li>
 
               <li class="sidebar-item">
                 <a

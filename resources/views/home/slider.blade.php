@@ -4,7 +4,7 @@
 @foreach($sliderdata as $rs)
 
 <div class="mySlides fade">
-  
+
   <img src="{{Storage::url($rs->image)}}" style="width:1000px; height:450px;">
   <!--<div class="text">Caption Text</div>-->
 </div>
