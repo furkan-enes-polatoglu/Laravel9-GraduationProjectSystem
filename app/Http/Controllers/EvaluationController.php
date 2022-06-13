@@ -45,6 +45,17 @@ class EvaluationController extends Controller
      }
 
 
+     public function evaluation()
+     {
+       $evaluation = Evaluation::all();
+       $project = Project::all();
+       $setting = Setting::first();
+       return view('admin.evaluation',[
+         'setting'=>$setting,
+         'evaluation'=>$evaluation,
+         'project'=>$project
+     ]);
+   }
 
 
     public function index()

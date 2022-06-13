@@ -52,7 +52,6 @@
                         </div>
 
                       <div class="container-fluid">
-                        <a href="{{route('userpanel.createproject')}}" class="btn btn-info">Proje Ekle</a>
 
                         <div class="col-12"><br>
                           <div class="card">

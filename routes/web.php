@@ -88,6 +88,7 @@ Route::prefix('facultypanel')->name('facultypanel.')->controller(EvaluationContr
 // ********************************** ADMIN PANEL ROUTING *******************************************
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function() {
     Route::get('/project',[AdminHomeController::class, 'project'])->name('project');
+    Route::get('/evaluation',[EvaluationController::class, 'evaluation'])->name('evaluation');
 
     // ******************************** GENERAL ROUTES *******************************************
         Route::get('/setting',[AdminHomeController::class, 'setting'])->name('setting');
