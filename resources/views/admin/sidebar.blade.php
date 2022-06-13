@@ -31,15 +31,7 @@
               </li>
 
 
-              <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/admin/evaluation"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-chart-bar"></i
-                  ><span class="hide-menu">Değerlendirmeler</span></a
-                >
-              </li>
+
 
 
               <li class="sidebar-item">
@@ -103,9 +95,20 @@
               </li>
 
 
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="/admin/evaluation"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-chart-bar"></i
+                  ><span class="hide-menu">Değerlendirmeler</span></a
+                >
+              </li>
+
+
 
             </li>
-            
+
 
 
             </ul>

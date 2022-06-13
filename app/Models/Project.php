@@ -25,4 +25,8 @@ class Project extends Model
       return $this->belongsTo(User::class,'user_id');
     }
 
+    public function evaluation(){
+      return $this->hasMany(Evaluation::class);
+    }
+
 }

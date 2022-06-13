@@ -3,17 +3,17 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12 block">
                 <div class="footer-block">
-                    <h4>Address</h4>
+                    <h4>Adres</h4>
                     <hr/>
                     <p>{{$setting->address}}
                     </p>
-                    <a href="#" class="learnmore">Learn More <i class="fa fa-caret-right"></i></a>
+                    <a href="#" class="learnmore">Daha fazla <i class="fa fa-caret-right"></i></a>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-3 col-xs-12 block">
                 <div class="footer-block">
-                    <h4>Useful Links</h4>
+                    <h4>Kullanışlı Linkler</h4>
                     <hr/>
                     <ul class="footer-links">
                         <li><a href="#">About Us</a></li>
@@ -28,7 +28,7 @@
 
             <div class="col-md-3 col-sm-3 col-xs-12 block">
                 <div class="footer-block">
-                    <h4>Community</h4>
+                    <h4>Topluluk</h4>
                     <hr/>
                     <ul class="footer-links">
                         <li><a href="#">Blog</a></li>
@@ -40,7 +40,7 @@
 
             <div class="col-md-3 col-sm-3 col-xs-12 <block></block>">
                 <div class="footer-block">
-                    <h4>Recent Posts</h4>
+                    <h4>Yakındaki Gönderiler</h4>
                     <hr/>
                     <ul class="footer-links">
                         <li>

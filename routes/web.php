@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminPanel\FaqController as AdminFaqController;
 use App\Http\Controllers\AdminPanel\CommentController as AdminCommentController;
 use App\Http\Controllers\AdminPanel\AdminUserController as AdminUserController;
 use App\Http\Controllers\UserController as UserController;
+use App\Http\Controllers\EvaluationController as EvaluationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,6 +63,7 @@ Route::middleware('auth')->group(function() {
       Route::get('/detailproject', 'detailproject')->name('detailproject');
       Route::get('/deleteproject/{id}', 'deleteproject')->name('deleteproject');
       Route::get('/showproject/{id}', 'showproject')->name('showproject');
+      Route::post('/gradecheck', 'gradecheck')->name('gradecheck');
 });
 
     Route::prefix('userpanel')->name('userpanel.')->controller(AdminImageController::class)->group(function() {
@@ -71,6 +73,17 @@ Route::middleware('auth')->group(function() {
       Route::get('/imageproject/delete/{pid}/{id}', 'destroy2')->name('destory2');
 
   });
+
+
+// ************************************* FACULTY ROUTES ************************************************
+Route::prefix('facultypanel')->name('facultypanel.')->controller(EvaluationController::class)->group(function() {
+    Route::get('/grading', 'grading')->name('grading');
+    Route::post('/givegrade/{id}', 'givegrade')->name('givegrade');
+
+
+});
+
+
 
 // ********************************** ADMIN PANEL ROUTING *******************************************
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function() {

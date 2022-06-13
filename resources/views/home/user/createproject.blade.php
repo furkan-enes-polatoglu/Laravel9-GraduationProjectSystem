@@ -95,6 +95,7 @@
           >
           <div class="col-sm-9">
             <input
+              maxlength="160"
               type="text"
               class="form-control"
               id="description"
@@ -154,7 +155,11 @@
 
 
         <div class="form-group row">
-          <label class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Resim</b></label>
+          <label class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Resim</b></label>
           <div class="col-md-3">
             <div class="custom-file">
               <input
@@ -213,18 +218,20 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" id="ekle" name="ekle" type="button" class="btn btn-success">
             Ekle
           </button>
+
+
         </div>
       </div>
     </form>
+
+
+
+
   </div>
 
 </div>
 <br><br><br><br><br><br><br>
 </div>
-
-
-
-
 
 
 </div>

@@ -4,7 +4,7 @@
 @foreach($sliderdata as $rs)
 
 <div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
+  
   <img src="{{Storage::url($rs->image)}}" style="width:1000px; height:450px;">
   <!--<div class="text">Caption Text</div>-->
 </div>
@@ -16,9 +16,9 @@
 <br>
 
 <div style="text-align:center">
+  @foreach($sliderdata as $rs)
   <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
+  @endforeach
 </div>
 
 <script>

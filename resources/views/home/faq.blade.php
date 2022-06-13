@@ -14,7 +14,7 @@
     <section id="top_banner">
         <div class="banner">
             <div class="inner text-center">
-                <h2>HİÇBİRİMİZ HEPİMİZ KADAR İYİ OLAMAYIZ</h2>
+                <h2>HİÇBİRİMİZ HEPİMİZ KADAR İYİ OLAMAYIZ...</h2>
             </div>
         </div>
         <div class="page_info">
@@ -35,14 +35,7 @@
     <section id="faq">
         <div class="titlebar">
             <div class="container">
-                <div class="row">
-                    <div class="section-heading text-center">
-                        <div class="col-md-12 col-xs-12">
-                            <h2>Know Us <span>More</span></h2>
-                            <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset nam nostrud euismod volumus ne mei.</p>
-                        </div>
-                    </div>
-                </div>
+
 
 
 

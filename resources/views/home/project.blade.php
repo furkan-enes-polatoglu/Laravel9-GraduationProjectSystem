@@ -19,7 +19,7 @@
     <section id="top_banner">
         <div class="banner">
             <div class="inner text-center">
-                <h2>HİÇBİRİMİZ HEPİMİZ KADAR İYİ OLAMAYIZ</h2>
+                <h2>HİÇBİRİMİZ HEPİMİZ KADAR İYİ OLAMAYIZ...</h2>
             </div>
         </div>
         <div class="page_info">

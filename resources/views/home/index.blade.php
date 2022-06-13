@@ -188,7 +188,7 @@
                <div class="testimonial_user">
                    <div class="user-image"><img src="{{asset('assets')}}/img/user3.jpg" alt="user" class="img-responsive" style="height:80px; weight:150px;"/></div>
                    <div class="user-info">
-                       <h5>Dr. Öğr. Üyesi Emrah Özkaynak</h5>
+                       <h5>Dr. Öğr. Emrah Özkaynak</h5>
                        <p>Karabük Üniversitesi</p>
                    </div>
                </div>

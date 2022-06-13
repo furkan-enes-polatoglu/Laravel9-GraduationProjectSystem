@@ -13,6 +13,7 @@ use App\Models\Setting;
 use App\Models\Message;
 use App\Models\Faq;
 use App\Models\Comment;
+use App\Models\RoleUser;
 
 
 class HomeController extends Controller
@@ -20,31 +21,40 @@ class HomeController extends Controller
 
 
   public function index() {
+    $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+    $student = RoleUser::select('user_id')->where('role_id','2')->get();
     $sliderdata=Project::where('status','True')->get();
     $setting = Setting::first();
     return view('home.index',[
       'sliderdata'=>$sliderdata,
-      'setting'=>$setting
+      'setting'=>$setting,
+      'faculty'=>$faculty,
+      'student'=>$student
     ]);
   }
 
 
   public function project() {
+    $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+    $student = RoleUser::select('user_id')->where('role_id','2')->get();
     //$projectlist1=Project::limit(50)->get();
     $projectlist1 = Project::where('status','True')->get();
     $setting = Setting::first();
     return view('home.project',[
       'projectlist1'=>$projectlist1,
-      'setting'=>$setting
+      'setting'=>$setting,
+      'faculty'=>$faculty,
+      'student'=>$student
     ]);
   }
 
 
   public function search(Request $req) {
-
+    $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+    $student = RoleUser::select('user_id')->where('role_id','2')->get();
      $setting = Setting::first();
      $searchlist = Project::where('title','like','%'.$req->input('query').'%')->get();
-     return view('home.search',['searchlist'=>$searchlist, 'setting'=>$setting]);
+     return view('home.search',['searchlist'=>$searchlist, 'setting'=>$setting, 'faculty'=>$faculty, 'student'=>$student]);
 
     /*//$projectlist1=Project::limit(50)->get();
     $projectlist1 = Project::where('status','True')->get();
@@ -55,6 +65,8 @@ class HomeController extends Controller
 
 
   public function projectdetail($id) {
+    $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+    $student = RoleUser::select('user_id')->where('role_id','2')->get();
     $data = Project::find($id);
     $setting = Setting::first();
     $images = DB::table('images')->where('project_id',$id)->get();
@@ -63,23 +75,33 @@ class HomeController extends Controller
       'data'=>$data,
       'images'=>$images,
       'setting'=>$setting,
-      'reviews'=>$reviews
+      'reviews'=>$reviews,
+      'faculty'=>$faculty,
+      'student'=>$student
     ]);
   }
 
 
   public function about() {
+    $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+    $student = RoleUser::select('user_id')->where('role_id','2')->get();
     $setting = Setting::first();
     return view('home.about',[
-      'setting'=>$setting
+      'setting'=>$setting,
+      'faculty'=>$faculty,
+      'student'=>$student
     ]);
   }
 
 
   public function contact() {
+    $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+    $student = RoleUser::select('user_id')->where('role_id','2')->get();
     $setting = Setting::first();
     return view('home.contact', [
-      'setting'=>$setting
+      'setting'=>$setting,
+      'faculty'=>$faculty,
+      'student'=>$student
     ]);
   }
 
@@ -116,11 +138,15 @@ class HomeController extends Controller
 
 
   public function faq() {
+    $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+    $student = RoleUser::select('user_id')->where('role_id','2')->get();
     $setting = Setting::first();
     $datalist = Faq::all();
     return view('home.faq', [
       'setting'=>$setting,
-      'datalist'=>$datalist
+      'datalist'=>$datalist,
+      'faculty'=>$faculty,
+      'student'=>$student
     ]);
   }
 
@@ -136,17 +162,25 @@ class HomeController extends Controller
 
 
   public function registration() {
+    $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+    $student = RoleUser::select('user_id')->where('role_id','2')->get();
     $setting = Setting::first();
     return view('home.registration', [
-      'setting'=>$setting
+      'setting'=>$setting,
+      'faculty'=>$faculty,
+      'student'=>$student
     ]);
   }
 
 
   public function references() {
+    $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+    $student = RoleUser::select('user_id')->where('role_id','2')->get();
     $setting = Setting::first();
     return view('home.references', [
-      'setting'=>$setting
+      'setting'=>$setting,
+      'faculty'=>$faculty,
+      'student'=>$student
     ]);
   }
 

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\Comment;
+use App\Models\RoleUser;;
 use App\Models\Project;
+use App\Models\Evaluation;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Image;
@@ -21,42 +23,60 @@ class UserController extends Controller
      */
     public function index()
     {
+      $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+      $student = RoleUser::select('user_id')->where('role_id','2')->get();
       $setting = Setting::first();
       return view('home.user.index',[
-        'setting'=>$setting
+        'setting'=>$setting,
+        'faculty'=>$faculty,
+        'student'=>$student
       ]);
     }
 
     public function reviews()
     {
+      $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+      $student = RoleUser::select('user_id')->where('role_id','2')->get();
         $setting = Setting::first();
         $comments = Comment::where('user_id','=',Auth::id())->get();
         return view('home.user.comments',[
           'setting'=>$setting,
-          'comments'=>$comments
+          'comments'=>$comments,
+          'faculty'=>$faculty,
+          'student'=>$student
         ]);
     }
 
 
     public function createproject()
     {
+      $project = Project::latest("id")->first()->get();
+      $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+      $student = RoleUser::select('user_id')->where('role_id','2')->get();
       $category = Category::all();
       $setting = Setting::first();
       return view('home.user.createproject',[
         'setting'=>$setting,
-        'category'=>$category
+        'category'=>$category,
+        'faculty'=>$faculty,
+        'student'=>$student,
+        'project'=>$project
       ]);
     }
 
 
     public function uploadproject()
     {
+      $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+      $student = RoleUser::select('user_id')->where('role_id','2')->get();
         $project = Project::where('user_id','=',Auth::id())->get();
         //$project = Project::all();
         $setting = Setting::first();
         return view('home.user.uploadproject',[
           'setting'=>$setting,
-          'project'=>$project
+          'project'=>$project,
+          'faculty'=>$faculty,
+          'student'=>$student
         ]);
     }
 
@@ -88,9 +108,22 @@ class UserController extends Controller
           'project'=>$project
         ]);*/
 
+
+          return redirect('userpanel/uploadproject');
+
+    }
+
+
+    public function gradecheck(Request $req)
+    {
+        $data1 = new Project();
+        $data2 = Evaluation::all();
+        $data2->user_id = Auth::id();
+        $data2->project_id = $data1->id;
+        $data2->status = "New";
+        $data2->save();
+
         return redirect('userpanel/uploadproject');
-
-
     }
 
 
@@ -124,11 +157,15 @@ class UserController extends Controller
      */
      public function showproject(Project $project, $id)
      {
+       $faculty = RoleUser::select('user_id')->where('role_id','5')->get();
+       $student = RoleUser::select('user_id')->where('role_id','2')->get();
        $setting = Setting::first();
        $data  = Project::find($id);
        return view('home.user.showproject',[
          'data' => $data,
-         'setting'=>$setting
+         'setting'=>$setting,
+         'faculty'=>$faculty,
+         'student'=>$student
        ]);
 
      }
