@@ -20,12 +20,12 @@
 
 
 
+
                       @foreach($student as $rs1)
                         @if(Auth::id()==$rs1->user_id)
                           <li><a href="{{route('userpanel.uploadproject')}}"><font color="white">|  &nbsp; <u><b>Projelerim</b></u> &nbsp; &nbsp;</font></a></li>
                         @endif
                       @endforeach
-
 
 
                       @foreach($faculty as $rs2)
